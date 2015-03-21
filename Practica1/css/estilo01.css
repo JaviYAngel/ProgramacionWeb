@@ -20,7 +20,18 @@ header{
 }
 
 nav{
+    float: left;
+    width: 237px;
+    border-bottom: 1px solid #6D6D6F;
+    margin-top: 0;
+    overflow:hidden;
+    position:relative;
+}
 
+nav ul{
+    background: #E9E9EB;
+    padding: 0;
+    margin: 0;
 }
 
 .container{
