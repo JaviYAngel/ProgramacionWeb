@@ -98,3 +98,12 @@ nav ul li:hover, #menu ul li:hover a {
 .container{
 
 }
+
+footer{
+    width: 953px;
+}
+footer img{
+    width: 100%;
+    margin-top:5px;
+    border-top:1px black solid;
+}
