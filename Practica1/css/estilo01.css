@@ -16,9 +16,14 @@ body{
 }
 
 header{
-
+    height: 230px;
+    margin-bottom: 18px;
 }
-
+header #logo {
+    height: 80px;
+    margin: 0;
+    float: right;
+}
 nav{
     float: left;
     width: 237px;
