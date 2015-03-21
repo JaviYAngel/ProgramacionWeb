@@ -2,7 +2,7 @@
 /* CSS Document */
 /*
 	body
-		Estilo general para todo el sitio web
+		Estilo general para el sitio web
 */
 
 /* Cuerpo de la pagina */
@@ -44,6 +44,55 @@ nav ul{
     background: #E9E9EB;
     padding: 0;
     margin: 0;
+}
+
+#nav ul.pulsado{
+    background-color:#14641B;
+    color: white;
+}
+nav ul.pulsado li{
+    color: white;
+    background-position: 10px;
+    background-image:url(../images/flechablanca.png);
+    background-size: 10px 10px;
+    background-repeat:no-repeat;
+    border-top: 1px solid #6D6D6F;
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    padding-left: 30px;
+}
+
+nav ul.abierto{
+    background-color: white;
+}
+
+nav ul a li{
+    color: #6C6C6E;
+    border-top: 1px solid #6D6D6F;
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    padding-left: 30px;
+    background-position: 10px;
+    background-image:url(../images/flechaverde.png);
+    background-size: 10px 10px;
+    background-repeat:no-repeat;
+}
+
+nav ul a, #inicio a{
+    text-decoration:none;
+}
+
+nav ul li:hover, #menu ul li:hover a {
+    background: #16631F;
+    color: #FFF;
+    background-position: 10px;
+    background-image:url(../images/flechablanca.png);
+    background-size: 10px 10px;
+    background-repeat:no-repeat;
 }
 
 .container{
