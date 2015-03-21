@@ -5,6 +5,7 @@
 		Estilo general para todo el sitio web
 */
 
+/* Cuerpo de la pagina */
 body{
     margin: 0 auto;
     padding: 0;
@@ -14,16 +15,22 @@ body{
     background-color: #FFF;
     width: 953px;
 }
-
+/* Cabecera de la web */
 header{
     height: 230px;
     margin-bottom: 18px;
 }
+/* Logo de la UGR que esta dentro de la cabecera */
 header #logo {
     height: 80px;
     margin: 0;
     float: right;
 }
+/* Link a la pagina de inicio */
+#inicio{
+    height: 20px;
+}
+
 nav{
     float: left;
     width: 237px;
