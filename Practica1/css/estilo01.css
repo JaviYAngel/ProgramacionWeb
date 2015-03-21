@@ -94,7 +94,23 @@ nav ul li:hover, #menu ul li:hover a {
     background-size: 10px 10px;
     background-repeat:no-repeat;
 }
+#login form{
+    width:100%;
+    background: #C5C5C7;
+}
 
+ #login label{
+    margin-left: 35px;
+    color: black;
+}
+#login input{
+    margin-left: 35px;
+    color: black;
+}
+
+#login form input.btn{
+    margin-top: 8px;
+}
 .container{
 
 }
