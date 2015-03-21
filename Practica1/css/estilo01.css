@@ -114,6 +114,97 @@ nav ul li:hover, #menu ul li:hover a {
 .container{
 
 }
+#centro{
+	background: #E9E9EB;
+	float: right;
+	width: 716px;
+	padding-bottom: 20px;
+	overflow:hidden;
+	position:relative;
+}
+#centro h1{
+	font-size: 16px;
+	text-align:center;
+}
+#centro h2{
+	margin-top:25px;
+	margin-left:25px;
+	font-size:16px;
+}
+#centro h3{
+	font-size: 26px;
+	margin-left: 20px;
+}
+
+#centro table{
+	margin: 0 auto;
+	width: 90%;
+	text-align:left;
+}
+#centro table tr th{
+	color: #5F5E63;
+	background-color: #75A285;
+	padding-left: 5px;
+}
+#centro table tr td{
+	padding-left: 15px;
+}
+#centro table.noticia tr td p.nombre{
+	padding-left: 0;
+	font-size:16px;
+	font-weight:bold;
+}
+#centro table.noticia tr td p{
+	padding-left: 0;
+	font-size:14px;
+}
+#centro table.noticia tr td leermas, #central table tr td leermas a{
+	float: right;
+	font-style:italic;
+	color: grey;
+}
+#centro noticia hr{
+	color: grey;
+	size: 2px;
+}
+#centro table tr td fecha{
+	color: #176220;	
+}
+
+#centro p{
+	text-align : justify;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#centro p1{
+	margin-left: 60px;
+	text-align: center;
+}
+
+#centro iframe{
+	margin: 0 auto;
+	display:block;
+}
+#centro desc{
+	margin-left: 225px;
+}
+#centro hr{
+	margin-top:40px;
+	width: 90%;
+	color: #214F18;
+	background-color: #214F18;
+	height: 5px;
+}
+
+#centro img.c{
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+	padding-top: 5px;
+	border-top: 1px solid #000;
+	display:block;
+	width: 70%;
+	margin: 0 auto;
+}
 
 footer{
     width: 953px;
