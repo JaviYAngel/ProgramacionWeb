@@ -5,6 +5,16 @@
 		Estilo general para todo el sitio web
 */
 
+body{
+    margin: 0 auto;
+    padding: 0;
+    color: #6C6C6E;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    background-color: #FFF;
+    width: 953px;
+}
+
 header{
 
 }
