@@ -136,7 +136,7 @@ nav ul li:hover, #menu ul li:hover a {
 	text-align:center;
 }
 
-/* h2 de la pagina informacion.html */
+/* h2 de la pagina comollegar.html */
 #centro h2{
 	margin-top:25px;
 	margin-left:25px;
@@ -149,6 +149,7 @@ nav ul li:hover, #menu ul li:hover a {
 	margin-left: 20px;
 }
 
+/* tabla para las paginas noticias.html e informacion.html*/
 #centro table{
 	margin: 0 auto;
 	width: 90%;
@@ -184,23 +185,30 @@ nav ul li:hover, #menu ul li:hover a {
 	color: #176220;	
 }
 
+/* Para los parrafos de index01.html*/
 #centro p{
 	text-align : justify;
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+/* Para los p1 de informacion.html*/
 #centro p1{
 	margin-left: 60px;
 	text-align: center;
 }
 
+/* Para los iframes de la pagina comollegar.html de los mapas*/
 #centro iframe{
 	margin: 0 auto;
 	display:block;
 }
+
+/* Para los desc de la pagina comollegar.html */
 #centro desc{
 	margin-left: 225px;
 }
+
 #centro hr{
 	margin-top:40px;
 	width: 90%;
@@ -219,9 +227,12 @@ nav ul li:hover, #menu ul li:hover a {
 	margin: 0 auto;
 }
 
+/* Pie de la pagina*/ 
 footer{
     width: 953px;
 }
+
+/* Imagenes del pie de pagina*/
 footer img{
     width: 100%;
     margin-top:5px;
