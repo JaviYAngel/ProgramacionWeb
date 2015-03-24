@@ -1,9 +1,12 @@
-@charset "utf-8";
-/* CSS Document */
-/*
-	body
-		Estilo general para el sitio web
+/* CSS Document 
+
+Autores: Javier Aranda Izquierdo
+         Angel Jimenes de Cisnesros Carreño
+
+
+        Estilo general para el sitio web
 */
+@charset "utf-8";
 
 /* Cuerpo de la pagina */
 body{
@@ -31,6 +34,7 @@ header #logo {
     height: 20px;
 }
 
+/* Menu de navegacion y seccion de login */
 nav{
     float: left;
     width: 237px;
@@ -40,6 +44,7 @@ nav{
     position:relative;
 }
 
+/* Menu de navegacion */
 nav ul{
     background: #E9E9EB;
     padding: 0;
@@ -114,6 +119,8 @@ nav ul li:hover, #menu ul li:hover a {
 .container{
 
 }
+
+/* Parte central de la pagina*/
 #centro{
 	background: #E9E9EB;
 	float: right;
@@ -122,15 +129,21 @@ nav ul li:hover, #menu ul li:hover a {
 	overflow:hidden;
 	position:relative;
 }
+
+/* h1 de la pagina informacion.html */
 #centro h1{
 	font-size: 16px;
 	text-align:center;
 }
+
+/* h2 de la pagina informacion.html */
 #centro h2{
 	margin-top:25px;
 	margin-left:25px;
 	font-size:16px;
 }
+
+/* h3 para la pagina noticias.html*/
 #centro h3{
 	font-size: 26px;
 	margin-left: 20px;
