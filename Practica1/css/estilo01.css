@@ -124,11 +124,12 @@ nav ul li:hover, #menu ul li:hover a {
 /* Parte central de la pagina*/
 #centro{
 	background: #E9E9EB;
-	float: right;
+	float: left;
 	width: 716px;
 	padding-bottom: 20px;
 	overflow:hidden;
 	position:relative;
+
 }
 
 /* h1 de la pagina informacion.html */
@@ -242,4 +243,7 @@ footer img{
 
 .container {
     background-color: #d3d3d5;
+    height: 100%;
+    border-bottom: 1px solid black;
+    float: left;
 }
