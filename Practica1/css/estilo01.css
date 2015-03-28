@@ -38,10 +38,13 @@ header #logo {
 nav{
     float: left;
     width: 237px;
+    width: 236px;
     border-bottom: 1px solid #6D6D6F;
+    border-right: 1px solid #6D6D6F;
     margin-top: 0;
     overflow:hidden;
     position:relative;
+    background-color: #D3D3D5
 }
 
 /* Menu de navegacion */
@@ -235,4 +238,8 @@ footer img{
     width: 100%;
     margin-top:5px;
     border-top:1px black solid;
+}
+
+.container {
+    background-color: #d3d3d5;
 }
