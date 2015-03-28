@@ -102,20 +102,25 @@ nav ul li:hover, #menu ul li:hover a {
     background-size: 10px 10px;
     background-repeat:no-repeat;
 }
+
+/* formulario del login*/
 #login form{
     width:100%;
     background: #C5C5C7;
 }
 
- #login label{
+/*formato de usuario y contraseña de formulario*/
+#login label{
     margin-left: 35px;
     color: black;
 }
+/* entrada de usuario y contraseña de login */
 #login input{
     margin-left: 35px;
     color: black;
 }
 
+/* estilo del boton del login */
 #login form input.btn{
     margin-top: 8px;
 }
@@ -219,6 +224,7 @@ nav ul li:hover, #menu ul li:hover a {
 	height: 5px;
 }
 
+/* Imagenes del centro de los articulos */
 #centro img.c{
 	padding-bottom: 5px;
 	border-bottom: 1px solid #000;
@@ -241,9 +247,11 @@ footer img{
     border-top:1px black solid;
 }
 
+/* Contiene el cuerpo de ca da pagina*/
 .container {
     background-color: #d3d3d5;
     height: 110%;
     border-bottom: 1px solid black;
     float: left;
 }
+
