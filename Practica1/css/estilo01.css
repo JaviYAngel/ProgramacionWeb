@@ -225,7 +225,7 @@ nav ul li:hover, #menu ul li:hover a {
 }
 
 /* Imagenes del centro de los articulos */
-#centro img.c{
+#centro img.imagen{
 	padding-bottom: 5px;
 	border-bottom: 1px solid #000;
 	padding-top: 5px;
