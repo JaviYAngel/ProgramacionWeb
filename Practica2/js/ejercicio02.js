@@ -42,6 +42,17 @@ function PintarTablero(){
     paleta_aux.setAttribute("border","1");
     paleta.appendChild(paleta_aux);
 
+    //Creamos el mensaje de estado con una tabla
+    var Pincel_aux = document.createElement("table");
+    var pincel = document.getElementById("Pincel");
+    var label = document.createElement("table")
+    td = document.createElement("td");
+    tr = document.createElement("tr");
+    var texto = document.createTextNode("Haga click en el color para empezar a pintar ");
+    td.appendChild(texto);
+    tr.appendChild(td);
+    Pincel_aux.appendChild(tr);
+    pincel.appendChild(Pincel_aux);
 }
 
 
