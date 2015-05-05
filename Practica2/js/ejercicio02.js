@@ -25,7 +25,25 @@ function PintarTablero(){
     }
     tabla.setAttribute("border","0");
     tablero.appendChild(tabla);
+
+    //Creaccion del objeto paleta de colores
+    var paleta_aux = document.createElement("table");
+    var paleta = document.getElementById("Paleta");
+
+    tr = document.createElement("tr");
+
+    for(var i=0;i<10;i++){
+        td = document.createElement("td");
+        td.setAttribute("id","c"+i);
+        td.setAttribute("class","c"+i);
+        tr.appendChild(td);
+    }
+    paleta_aux.appendChild(tr);
+    paleta_aux.setAttribute("border","1");
+    paleta.appendChild(paleta_aux);
+
 }
+
 
 
 
