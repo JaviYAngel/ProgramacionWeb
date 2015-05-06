@@ -60,7 +60,7 @@ function addListeners(){
 
 	PintarTablero();
 
-	// Función para asignar un evento a cada tr de la paleta de colores
+	//Asignar un evento a cada tr de la paleta de colores
 	if(window.addEventListener){
 		for(var i = 0 ; i < 10 ; i++ ){
 			e0 = document.getElementById('c'+i);
@@ -69,7 +69,7 @@ function addListeners(){
 	}
 
 	// Función para deseleccionar los colores
-	function desmarcaTodo(){
+	function deseleccionaColor(){
 		for( var i = 0 ; i < 10 ; i++ ){
 			e0 = document.getElementById('c'+i);
 			e0.style.border = "1px solid black";
@@ -79,12 +79,12 @@ function addListeners(){
 	// Función para activar y desactivar los colores
 	function dameColor(){
 		if(color == this.id && estaMarcado){
-			desmarcaTodo();
+			deseleccionaColor();
 			color = "c3";
 			estaMarcado = false;
 			return;
 		}
-			desmarcaTodo();
+			deseleccionaColor();
 			color = this.id;
 			this.style.border = "3px solid #993399";
 			estaMarcado = true;
@@ -93,9 +93,9 @@ function addListeners(){
 
 	// Función para cambiar el estado del pincel y escribir el estado actual en el div pinceld
 	function cambiaPincel(){
-		if(!pincel)this.className=color;
+		if(!pincel){this.className=color;}
 		pincel = !pincel;
-		pinceld.innerHTML='';
+		Pincel.innerHTML='';
 
 		var tabla = document.createElement("table");
 		var tr = document.createElement("tr");
@@ -105,7 +105,7 @@ function addListeners(){
 		td.appendChild(texto);
 		tr.appendChild(td);
 		tabla.appendChild(tr);
-		var lista = document.getElementById("pinceld");
+		var lista = document.getElementById("Pincel");
 		lista.appendChild(tabla);
 	}
 
@@ -114,7 +114,9 @@ function addListeners(){
 		if(window.addEventListener){
 			e = document.getElementById(i);
 			e.addEventListener("click",cambiaPincel, false);
-			e.addEventListener("mouseover", function(){if(pincel==true)this.className=color;}, false);
+			e.addEventListener("mouseover", function(){
+                if(pincel===true){this.className=color;}
+            }, false);
 		}
 	}
 }
