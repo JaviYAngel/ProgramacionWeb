@@ -23,7 +23,7 @@ function PintarTablero(){
         }
         tabla.appendChild(tr);
     }
-    tabla.setAttribute("border","0");
+    tabla.setAttribute("border","1");
     tablero.appendChild(tabla);
 
     //Creaccion del objeto paleta de colores
@@ -58,7 +58,7 @@ function PintarTablero(){
 // Funcion para añadir los listeners de las acciones
 function addListeners(){
 
-	pintaTablero();
+	PintarTablero();
 
 	// Función para asignar un evento a cada tr de la paleta de colores
 	if(window.addEventListener){
