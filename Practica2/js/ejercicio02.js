@@ -91,7 +91,7 @@ function addListeners(){
 
 	}
 
-	// Función para cambiar el estado del pincel y escribir el estado actual en el div pinceld
+	// Función para cambiar el estado del pincel y escribir el estado actual en el div Pincel
 	function cambiaPincel(){
 		if(!pincel){this.className=color;}
 		pincel = !pincel;
