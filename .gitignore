@@ -1,5 +1,5 @@
 /Practica1/Practica01.zip
 *.zip
-
+idea*
 .DS_Store
 bower.json
