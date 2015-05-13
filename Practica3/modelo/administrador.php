@@ -7,5 +7,16 @@
  */
 
 class administrador {
+    private $DB;
+    private $administradores;
+
+    public function __construct(){
+        $this->administradores = array();
+        $this->DB = new PDO('mysql:host=localhost;dbname=76439462','ejercicio_pw','pass_ejercicio_pw');
+    }
+
+    public function setNames(){
+
+    }
 
 }
