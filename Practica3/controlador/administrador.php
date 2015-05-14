@@ -6,13 +6,21 @@
  * Time: 16:05
  */
 
-require_once("../modelo/administrador.php");
-require_once("../modelo/profesional.php");
-require_once("../modelo/cliente.php");
+require_once("../modelo/usuarios.php");
 
 $admin = new administrador();
-$profesional = new cliente();
+$profesional = new profesional();
 $cliente = new cliente();
+
+$lista_clientes = $cliente->getClientes();
+
+
+
+
+
+
+
+
 
 
 
