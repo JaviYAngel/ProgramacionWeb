@@ -20,6 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 
 </head>
@@ -125,7 +126,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user">
-                        </i> <?php echo $usuario;?> <b class="caret"></b></a>
+                        </i> <?php echo $_POST["dni"];?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i>Modificar Perfil</a>
@@ -415,10 +416,10 @@
 
 
 
-<!-- jQuery -->
-<script src="./js/jquery.js"></script>
+<!-- jQuery <script src="./js/jquery.js"></script>-->
+
 <!-- Validacion  -->
-<script src="./js/validation.js"></script>
+<script src="./js/jquery.validate.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="./js/bootstrap.min.js"></script>
 </body>
