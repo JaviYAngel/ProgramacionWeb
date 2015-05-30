@@ -12,15 +12,25 @@
     <title>Bienvenido a Nuestra Aplicacion de Tickets</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vista/css/bootstrap.min.css" rel="stylesheet">
+    <link href="admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="vista/css/estilo03.css" rel="stylesheet">
+    <link href="admin/css/estilo03.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vista/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Framework CSS Material Desing -->
-    <link href="vista/css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="admin/css/materialize.min.css" rel="stylesheet" type="text/css">
+
+    <!--<script src="admin/js/jquery.js"></script> -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- validacion a traves de Jquery-->
+    <script type="text/javascript" src="ejercicio03.js"></script>
+
+    <!-- Validacion  -->
+    <script type="text/javascript" src="./admin/js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="./admin/js/additional-methods.min.js"></script>
 
 </head>
 
@@ -51,19 +61,27 @@
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-action-perm-identity"></i>Registrarse como cliente</div>
                         <div class="collapsible-body cyan lighten-4">
                             <br/>
-                            <form class="col s12" action="controlador/administrador.php" method="post">
+                            <?php
+                                require_once('./conexion.php');
+                                $con = new conexion();
+                                if(!isset($_POST)) {
+                                    $res = $con->setClientes(array($_POST['dni'], $_POST['nombre'],
+                                        $_POST['pass']));
+                                }
+                            ?>
+                            <form id="form1" class="col s12" action="index03.php" method="post">
                                 <div class="row">
-                                    <div class="input-field col s10">
-                                        <input name="nombre" id="nombre" type="text" class="validate">
-                                        <label for="nombre">Nombre</label>
+                                    <div class="input-field col s10" id="nombre">
+                                        <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
+                                        <label for="nombre"  >Nombre</label>
                                     </div>
                                     <div class="input-field col s10">
-                                        <input name="dni" id="dni" type="text" class="validate">
-                                        <label for="dni">Dni</label>
+                                        <input name="dni" id="dni" type="text" class="validate" required>
+                                        <label for="dni" required>Dni</label>
                                     </div>
                                     <div class="input-field col s10">
-                                        <input name="pass" id="pass" type="password" class="validate">
-                                        <label for="pass">Contraseña</label>
+                                        <input name="pass" id="pass" type="password" class="validate" required>
+                                        <label for="pass" required >Contraseña</label>
                                     </div>
                                     <div class="col offset-s1 s8">
                                         <button class="btn waves-effect waves-light cyan" type="submit" name="action">Enviar
@@ -78,14 +96,14 @@
                     <li>
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-maps-place"></i>LogIn</div>
                         <div class="collapsible-body cyan lighten-4">
-                            <form class="col s12" action="controlador/administrador.php" method="post">
+                            <form class="col s12" action="./admin/admin.php" method="post">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input name="dni" id="dni" type="text" class="validate">
+                                        <input name="dni" id="dni2" type="text" class="validate">
                                         <label for="dni">Dni</label>
                                     </div>
                                     <div class="input-field col s6">
-                                        <input name="pass" id="pass" type="password" class="validate">
+                                        <input name="pass" id="pass2" type="password" class="validate">
                                         <label for="pass">Contraseña</label>
 
                                     </div>
@@ -119,15 +137,13 @@
     </footer>
 
 
-
     <!-- jQuery -->
-    <script src="vista/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vista/js/bootstrap.min.js"></script>
-    <script src="vista/js/materialize.min.js"></script>
+    <script src="admin/js/bootstrap.min.js"></script>
+    <script src="admin/js/materialize.min.js"></script>
 <script>
-    $(".button-collapse").sideNav();
+    //$(".button-collapse").sideNav();
     $(".button-collapse").sideNav({
             menuWidth: 300, // Default is 240
             edge: 'left', // Choose the horizontal origin
