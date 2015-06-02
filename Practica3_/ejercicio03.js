@@ -17,14 +17,18 @@ $(document).ready(function(){
             nombre: "Especifica tu nombre.",
             dni: "Introduce DNI con letra en mayuscula.",
             pass: "Campo vacío."
-        }
+        },
+        //errorLabelContainer:"#message a",
+        wrapper:"a "
     });
-    $("#nombre").validate({
+
+
+   /* $("#nombre").validate({
        rules:{
 
        },
         messages:{
 
         }
-    });
+    });*/
 });

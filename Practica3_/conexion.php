@@ -82,7 +82,7 @@ class conexion {
     }
 
     public function existeUsuario($dni){
-        $consulta = 'select nombre from usuarios where DNI = $dni';
+        //$consulta = 'select nombre from usuarios where DNI = $dni';
 
         $sql = $this->conexion->prepare('select * from usuarios where DNI = :dni');
         $user =  array();

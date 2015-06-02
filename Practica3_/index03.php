@@ -15,7 +15,7 @@
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="admin/css/estilo03.css" rel="stylesheet">
+    <link href="estilo03.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -74,6 +74,7 @@
                                     <div class="input-field col s10" id="nombre">
                                         <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
                                         <label for="nombre"  >Nombre</label>
+
                                     </div>
                                     <div class="input-field col s10">
                                         <input name="dni" id="dni" type="text" class="validate" required>
@@ -96,11 +97,12 @@
                     <li>
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-maps-place"></i>LogIn</div>
                         <div class="collapsible-body cyan lighten-4">
-                            <form class="col s12" action="./admin/admin.php" method="post">
+                            <form id="form1" class="col s12" action="admin/index.php" method="post">
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input name="dni" id="dni2" type="text" class="validate">
                                         <label for="dni">Dni</label>
+
                                     </div>
                                     <div class="input-field col s6">
                                         <input name="pass" id="pass2" type="password" class="validate">
