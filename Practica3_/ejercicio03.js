@@ -1,5 +1,8 @@
 $(document).ready(function(){
     $("#form1").validate({
+        groups:{
+            grupo: "nombre dni pass"
+        },
         rules: {
             nombre: {
                 required: true
@@ -19,7 +22,15 @@ $(document).ready(function(){
             pass: "Campo vacío."
         },
         //errorLabelContainer:"#message a",
-        wrapper:"a "
+        //wrapper:"a ", debug:true,
+        errorPlacement: function(error, element){
+            if((element.attr("name")=="nombre") || (element.attr("name")=="dni") ||(element.attr("name")=="pass")){
+                error.insertAfter("#groupDiv","form1");
+            }else{
+                error.insertAfter(element);
+
+            }
+        }
     });
 
 

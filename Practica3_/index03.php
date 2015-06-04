@@ -70,7 +70,7 @@
                                 }
                             ?>
                             <form id="form1" class="col s12" action="index03.php" method="post">
-                                <div class="row">
+                                <div id="groupDiv" class="row">
                                     <div class="input-field col s10" id="nombre">
                                         <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
                                         <label for="nombre"  >Nombre</label>
