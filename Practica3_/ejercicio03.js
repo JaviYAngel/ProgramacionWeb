@@ -8,7 +8,8 @@ $(document).ready(function(){
                 required: true
             },
             dni:{
-                required: true
+                required: true,
+                rangelength:[2,9]
             },
             pass:{
                 required:true
@@ -41,5 +42,17 @@ $(document).ready(function(){
         messages:{
 
         }
-    });*/
+    });
+
+    function verificar(){
+    $.ajax({type:"GET",
+    url:"validacion.php",
+    data:"dni="+document.dni.valueOf(),
+    succes: function (msg) {
+    $("#final").html(msg);;
+    }})
+    }
+
+
+    */
 });

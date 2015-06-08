@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['existeUsuario'])){$_SESSION['existeUsuario']="vacio";}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,7 +71,7 @@
                             <?php
                                 require_once('./conexion.php');
                                 $con = new conexion();
-                                if(!isset($_POST)) {
+                                if(isset($_POST['nombre'])) {
                                     $res = $con->setClientes(array($_POST['dni'], $_POST['nombre'],
                                         $_POST['pass']));
                                 }
@@ -88,6 +95,8 @@
                                         <button class="btn waves-effect waves-light cyan" type="submit" name="action">Enviar
                                             <i class="mdi-content-send right"></i>
                                         </button>
+
+
                                     </div>
                                 </div>
                             </form>
@@ -97,7 +106,7 @@
                     <li>
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-maps-place"></i>LogIn</div>
                         <div class="collapsible-body cyan lighten-4">
-                            <form id="form1" class="col s12" action="admin/index.php" method="post">
+                            <form id="form1" class="col s12" action="validacion.php" method="post">
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <input name="dni" id="dni2" type="text" class="validate">
@@ -105,16 +114,22 @@
 
                                     </div>
                                     <div class="input-field col s6">
-                                        <input name="pass" id="pass2" type="password" class="validate">
-                                        <label for="pass">Contraseña</label>
+                                        <input name="pass1" id="pass2" type="password" class="validate">
+                                        <label for="pass1">Contraseña</label>
 
                                     </div>
                                     <div class="col offset-s2 s8">
-                                        <button class="btn waves-effect waves-light cyan" type="submit" name="action">Enviar
-                                            <i class="mdi-content-send "></i>
+                                        <button class="btn waves-effect waves-light cyan" type="submit" name="action" >Enviar
+                                            <i class="mdi-content-send " ></i>
                                         </button>
                                     </div>
+                                    <div id="final">
+                                        <?php
+
+                                        ?>
+                                    </div>
                                 </div>
+
                             </form>
                         </div>
                     </li>
@@ -122,6 +137,17 @@
             </div>
             <div class="col s4"><br/></div>
         </div>
+    <h5><?php
+
+            if(isset($_POST["dni"])){
+                echo "Cliente registrado correctamente";
+            }elseif($_SESSION['login_vacio']==true ){
+                echo "Campos vacíos.";
+            }elseif($_SESSION['existeUsuario']=="vacio"){
+
+            }elseif($_SESSION['existeUsuario']=="noUsuario"){
+            echo "Contraseña o usuario inválidos.";}?>
+    </h5>
 
     </div>
    </main>
@@ -129,7 +155,7 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Cola de tickets</h5>
+                    <h5 class="white-text"><a href="index03.php">Cola de tickets</a></h5>
                     <p class="cyan-text text-lighten-4">Aplicación creada para la asignatura de Programación Web</p>
                 </div>
 
@@ -152,6 +178,10 @@
             closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         }
     );
+
+
+
+
 </script>
 </body>
 </html>

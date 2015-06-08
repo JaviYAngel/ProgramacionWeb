@@ -1,3 +1,14 @@
+<?php
+    require_once('../conexion.php');
+    $conexion = new conexion();
+    session_start();
+
+    $tipo=$_SESSION['tipo'];
+    $active="active";
+    //if(isset($_POST["dni"]))
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head lang="es">
@@ -7,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $titulo ?></title>
+    <title>Panel de Administración de: <?php echo $tipo ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +60,7 @@
                         require_once('../conexion.php');
                         $con = new conexion();
                         $datos=$con->existeUsuario($_POST['dni']);
-                        echo $datos['nombre'];
+                        echo $_SESSION['usuario'];
 
 
                         ?> <b class="caret"></b></a>
@@ -59,7 +70,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../index03.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="../index03.php"><i class="fa fa-fw fa-power-off"></i> Log Out<?php $_SESSION['existeUsuario']=false; ?></a>
                         </li>
                     </ul>
                 </li>
@@ -67,22 +78,56 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    <?php
+                        //tipo cliente
+                        if($tipo == "cliente") {
+                    ?>
 
-                    <li >
-                        <a href="../controlador/administrador.php"><i class="fa fa-fw fa-dashboard"></i> Usuarios</a>
-                    </li>
+                            <li class="<?php if($_GET['class']=='cliente') echo $active;?>">
+                                <a href="./index.php?class=cliente"><i class="fa fa-fw fa-dashboard"></i>
+                                    Cliente</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='cola') echo $active;?>">
+                                <a href="./index.php?class=cola"><i class="fa fa-fw fa-wrench"></i> Colas</a>
+                            </li>
+                    <?php
+                        }
+                        //tipo Profesional
+                        if($tipo == "profesional"){
+                    ?>
+                            <li class="<?php if($_GET['class']=='cliente') echo $active;?>">
+                                <a href="./index.php?class=cliente"><i class="fa fa-fw fa-dashboard"></i>
+                                    Cliente</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='profesional') echo $active;?>">
+                                <a href="./index.php?class=profesional"><i class="fa fa-fw fa-edit"></i> Profesional</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='cola') echo $active;?>">
+                                <a href="./index.php?class=cola"><i class="fa fa-fw fa-wrench"></i> Colas</a>
+                            </li>
+                    <?php
+                        }
+                        //tipo Administrador
+                        if($tipo == "admin") {
 
-                    <li class="active">
-                        <a href="../controlador/administrador.php"><i class="fa fa-fw fa-edit"></i> Profesional</a>
-                    </li>
-
-                    <li class="active" >
-                        <a href="../controlador/administrador.php"><i class="fa fa-fw fa-desktop"></i> Administradores</a>
-                    </li>
-
-                    <li>
-                        <a href="/bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Colas</a>
-                    </li>
+                            ?>
+                            <li class="<?php if($_GET['class']=='cliente') echo $active;?>">
+                                <a href="./index.php?class=cliente"><i class="fa fa-fw fa-dashboard"></i>
+                                    Cliente</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='profesional') echo $active;?>">
+                                <a href="./index.php?class=profesional"><i class="fa fa-fw fa-edit"></i> Profesional</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='admin') echo $active;?>">
+                                <a href="./index.php?class=admin"><i class="fa fa-fw fa-desktop"></i>
+                                    Administrador</a>
+                            </li>
+                            <li class="<?php if($_GET['class']=='cola') echo $active;?>">
+                                <a href="./index.php?class=cola"><i class="fa fa-fw fa-wrench"></i> Colas</a>
+                            </li>
+                        <?php
+                        }
+                    ?>
 
                 </ul>
             </div>
