@@ -38,7 +38,7 @@ class conexion {
     {
 
         try {
-            $stmt = $this->conexion->prepare('insert into usuarios(DNI,nombre,pass) VALUES (:dni,:nombre ,:pass)');
+            $stmt = $this->conexion->prepare('insert into usuarios(DNI,nombre,pass,tipo_usuario) VALUES (:dni,:nombre ,:pass,cliente)');
             $rows = $stmt->execute(array(':nombre' => $clientes[1],
                 ':pass' => $clientes[2], ':dni' => $clientes[0]));
             if ($rows > 0)
@@ -97,5 +97,9 @@ class conexion {
             $user[]=$datos;
         }
         return $user;
+    }
+    public function updateUsuarios($usuarios){
+        $stmt = $this->conexion->prepare('UPDATE usuarios SET nombre = :nombre WHERE usuarios.DNI= :dni');
+        $rows = $stmt->execute(array(':nombre'  =>  $usuarios[1],':dni'  =>  $usuarios[0]));
     }
 }
