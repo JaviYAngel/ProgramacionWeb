@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: angel
- * Date: 10/06/15
- * Time: 14:01
+ * Date: 13/06/15
+ * Time: 15:59
  */
 ?>
 
@@ -23,22 +23,13 @@
                 <div class="form-group">
                     <label for="dni" class="col-sm-2 control-label">DNI</label>
                     <div class="col-sm-7">
-                        <select name="dni" id="dni">
-                        <?php
-
-                        $result = $conexion->selectUsuarios($clase);
-                        $long=count($result);
-                        for($i=0;$i<$long;$i++) {
-                            echo "<option>" . $result[$i][0] . "</option>";
-                        }
-                        ?>
-                        </select>
+                        <input type="text" class="form-control" id="dni" placeholder="Escribe el DNI"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre" class="col-sm-2 control-label">Nombre</label>
                     <div class="col-sm-7">
-                        <input name="nombre" type="text" class="form-control" id="nombre" placeholder="<?php echo $datos[0][0] ?>">
+                        <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
                     </div>
                 </div>
                 <div class="form-group">
@@ -66,7 +57,7 @@
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Añadir</button>
                     </div>
                 </div>
             </form>

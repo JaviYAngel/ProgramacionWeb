@@ -188,7 +188,9 @@
                     </ul>
                     <div id="my-tab-content" class="tab-content">
                         <div class="tab-pane fade in active" id="añadir">
-
+                            <?php
+                            include_once("añadeUsuario.php");
+                            ?>
                         </div>
                         <div class="tab-pane fade" id="modificar">
                             <?php
@@ -196,7 +198,9 @@
                             ?>
                         </div>
                         <div class="tab-pane fade" id="eliminar">
-
+                            <?php
+                            include_once("eliminaUsuario.php");
+                            ?>
                         </div>
                     </div>
                             <?php
