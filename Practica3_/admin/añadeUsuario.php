@@ -14,7 +14,7 @@
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Modificar <?php echo $tipo;?></h3>
+                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Añadir <?php echo $clase;?></h3>
             </div>
 
             <form action="index.php" class="form-horizontal" method="post">
