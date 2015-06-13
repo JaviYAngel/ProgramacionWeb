@@ -102,4 +102,17 @@ class conexion {
         $stmt = $this->conexion->prepare('UPDATE usuarios SET nombre = :nombre WHERE usuarios.DNI= :dni');
         $rows = $stmt->execute(array(':nombre'  =>  $usuarios[1],':dni'  =>  $usuarios[0]));
     }
+
+    public function selectUsuarios($tipo){
+        //$sql=$this->conexion->query('Select DNI FROM usuarios WHERE tipo_usuario = $tipo ')
+        $sql = $this->conexion->prepare('Select DNI FROM usuarios WHERE tipo_usuario = :tipo');
+
+        $sql->execute(array(':tipo' => $tipo));
+        while($datos = $sql->fetch()){
+            $user[]=$datos;
+        }
+        //echo "por aqui";
+        print_r($user) ;
+        return $user;
+    }
 }

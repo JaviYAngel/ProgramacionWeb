@@ -7,7 +7,7 @@
     $active="active";
     //if(isset($_POST["dni"]))
     if(isset($_GET['class'])){
-
+        $clase=$_GET['class'];
     }else{
         $clase="cola";
     }
@@ -177,23 +177,35 @@
 
 
                 <!-- /.row -->
+                <?php
+                if($clase=="cola"){
+                    include_once("colas.php");
+                }else{?>
+                    <ul id="tabs" class="nav nav-tabs nav-justified">
+                        <li class="active"><a href="#añadir" data-toggle="tab">Añadir</a></li>
+                        <li><a href="#modificar" data-toggle="tab">Modificar</a></li>
+                        <li><a href="#eliminar" data-toggle="tab">Eliminar</a></li>
+                    </ul>
+                    <div id="my-tab-content" class="tab-content">
+                        <div class="tab-pane fade in active" id="añadir">
 
-                <div class="row">
-                    <div class="col-lg-2">
-
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Modificar <?php echo $tipo;?></h3>
-                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="modificar">
+                            <?php
+                            include_once("modificaUsuarios.php");
+                            ?>
+                        </div>
+                        <div class="tab-pane fade" id="eliminar">
 
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                            <?php
+                            }
+                            ?>
 
-                    </div>
-                </div>
+                <script type="text/javascript">
+
+                </script>
                 <!-- /.row -->
 
             </div>
