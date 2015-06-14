@@ -129,6 +129,55 @@
                         <?php
                         }
                     ?>
+                    <script type="text/javascript">
+                        function eliminaUsuario(){
+                            var dni = document.getElementById('dniElimina').value;
+                            var elimina='elimina';
+                            $.ajax({
+                                type: 'POST',
+                                data:('dni='+dni+'&ajax='+elimina),
+                                url:'ajax_eliminar.php',
+
+                                beforeSend: function(){
+                                    $('#resultadoElimina').html('Procesando, espere por favor...');
+                                },
+                                success:function (response){
+                                    $('#resultadoElimina').html('Usuario eliminado correctamente');
+
+                                }
+                            });
+                        }
+                        //Funcion para añadir un usuario mediante AJAX.
+                        function addUsuario(){
+                            var dni = document.getElementById('dniAdd').value;
+                            var nombre = document.getElementById('nombreAdd').value;
+                            var pass = document.getElementById('passAdd').value;
+                            <?php if($clase=='admin'){?>
+                            var tipo_usuario = document.getElementById('tipo_usuario').value;
+                            <?php
+                            }else{?>
+                            var tipo_usuario = '<?php echo $clase; ?>';
+                            <?php
+                            }
+                            ?>
+                            var add ='add';
+                            $.ajax({
+                                type: 'POST',
+                                data:('ajax='+add+'&dni='+dni+'&nombre='+nombre+'&pass='+pass+'&tipo_usuario='+tipo_usuario),
+                                url:'ajax_eliminar.php',
+                                beforeSend: function(){
+                                    $('#resultadoModifica').html('Procesando, espere por favor...');
+                                },
+                                success:function (response){
+                                    $('#resultadoModifica').html(response);
+                                    $('#dniAdd').html('');
+                                    $('#nombreAdd').html('');
+                                    $('#passAdd').html('');
+                                }
+                            });
+                        }
+
+                    </script>
 
                 </ul>
             </div>

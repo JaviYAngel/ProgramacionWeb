@@ -9,10 +9,11 @@ $(document).ready(function(){
             },
             dni:{
                 required: true,
-                rangelength:[2,9]
+                rangelength:[8,9]
             },
             pass:{
-                required:true
+                required:true,
+                rangelength:[3,9]
             }
 
 
@@ -20,7 +21,7 @@ $(document).ready(function(){
         messages: {
             nombre: "Especifica tu nombre.",
             dni: "Introduce DNI con letra en mayuscula.",
-            pass: "Campo vacío."
+            pass: "Campo vacío. Rango entre 3-9"
         },
         //errorLabelContainer:"#message a",
         //wrapper:"a ", debug:true,

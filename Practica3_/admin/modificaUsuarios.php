@@ -55,9 +55,9 @@
 
                         <div class="col-sm-4">
                             <select class="form-control ">
-                                <option>cliente</option>
-                                <option>admin</option>
-                                <option>profesional</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="admin">Administrador</option>
+                                <option value="profesional">Profesional</option>
                             </select>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </form>

@@ -23,19 +23,19 @@
                 <div class="form-group">
                     <label for="dni" class="col-sm-2 control-label">DNI</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="dni" placeholder="Escribe el DNI"/>
+                        <input type="text" class="form-control" id="dniAdd" placeholder="Escribe el DNI"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre" class="col-sm-2 control-label">Nombre</label>
                     <div class="col-sm-7">
-                        <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+                        <input name="nombre" type="text" class="form-control" id="nombreAdd" placeholder="Nombre">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="pass" class="col-sm-2 control-label">Contraseña</label>
                     <div class="col-sm-7">
-                        <input name="pass" type="password" class="form-control" id="pass" placeholder="Pass">
+                        <input name="pass" type="password" class="form-control" id="passAdd" placeholder="Pass">
                     </div>
                 </div>
                 <?php
@@ -45,10 +45,10 @@
                         <label for="tipo_usuario" class="col-sm-2 control-label">Tipo Usuario</label>
 
                         <div class="col-sm-4">
-                            <select class="form-control ">
-                                <option>cliente</option>
-                                <option>admin</option>
-                                <option>profesional</option>
+                            <select class="form-control " name="tipo_usuario" id="tipo_usuario">
+                                <option value="cliente">Cliente</option>
+                                <option value="admin">Administrador</option>
+                                <option value="profesional">Profesional</option>
                             </select>
                         </div>
                     </div>
@@ -57,9 +57,14 @@
                 ?>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+                        <button type="button" class="btn btn-primary" onclick="javascript:addUsuario();">Añadir</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-10" id="resultadoModifica">
+
                     </div>
                 </div>
+
+
             </form>
         </div>
     </div>

@@ -38,7 +38,7 @@ class conexion {
     {
 
         try {
-            $stmt = $this->conexion->prepare('insert into usuarios(DNI,nombre,pass,tipo_usuario) VALUES (:dni,:nombre ,:pass,cliente)');
+            $stmt = $this->conexion->prepare('insert into usuarios(DNI,nombre,pass,tipo_usuario) VALUES (:dni,:nombre ,:pass,"cliente")');
             $rows = $stmt->execute(array(':nombre' => $clientes[1],
                 ':pass' => $clientes[2], ':dni' => $clientes[0]));
             if ($rows > 0)
@@ -112,7 +112,19 @@ class conexion {
             $user[]=$datos;
         }
         //echo "por aqui";
-        print_r($user) ;
+        //print_r($user) ;
         return $user;
+    }
+
+    public  function eliminaUsuario($datos){
+
+        $sql = $this->conexion->prepare('DELETE FROM usuarios WHERE DNI = :dni');
+        $rows = $sql->execute( array( ':dni' => $datos));
+    }
+
+    public function addUsuario($dni,$nombre,$pass,$tipo){
+
+        $sql = $this->conexion->prepare('INSERT  INTO usuarios (DNI,nombre,pass,tipo_usuario) VALUES (:dni, :nombre, :pass, :tipo_usuario)');
+        $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
     }
 }

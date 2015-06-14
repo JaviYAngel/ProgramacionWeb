@@ -23,13 +23,13 @@
                 <div class="form-group">
                     <label for="dni" class="col-sm-2 control-label">DNI</label>
                     <div class="col-sm-7">
-                        <select name="dni" id="dni">
+                        <select name="dni" id="dniElimina">
                             <?php
 
                             $result = $conexion->selectUsuarios($clase);
                             $long=count($result);
                             for($i=0;$i<$long;$i++) {
-                                echo "<option>" . $result[$i][0] . "</option>";
+                                echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
                             }
                             ?>
                         </select>
@@ -37,9 +37,14 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                        <button type="button" class="btn btn-primary"  onclick="javascript:eliminaUsuario();">Eliminar</button>
                     </div>
                 </div>
+
+                <div class="col-sm-offset-2 col-sm-10" id="resultadoElimina">
+
+                </div>
+
             </form>
         </div>
     </div>
