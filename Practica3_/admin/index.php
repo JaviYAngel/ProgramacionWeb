@@ -130,19 +130,23 @@
                         }
                     ?>
                     <script type="text/javascript">
+                        //Funcion Elimina un usuario mediante AJAX
                         function eliminaUsuario(){
                             var dni = document.getElementById('dniElimina').value;
                             var elimina='elimina';
+                            var clase = '<?php echo $clase;?>';
                             $.ajax({
                                 type: 'POST',
-                                data:('dni='+dni+'&ajax='+elimina),
+                                data:('dni='+dni+'&ajax='+elimina+'&clase='+clase),
                                 url:'ajax_eliminar.php',
 
                                 beforeSend: function(){
                                     $('#resultadoElimina').html('Procesando, espere por favor...');
                                 },
                                 success:function (response){
-                                    $('#resultadoElimina').html('Usuario eliminado correctamente');
+                                    $('#resultadoElimina').html('<p class="text-success"><span class="label label-success">Success</span> Eliminado correctamente.</p>');
+                                    $('#dniElimina').html(response);
+                                    $('#dnimodifica').html(response);
 
                                 }
                             });
@@ -152,6 +156,7 @@
                             var dni = document.getElementById('dniAdd').value;
                             var nombre = document.getElementById('nombreAdd').value;
                             var pass = document.getElementById('passAdd').value;
+                            var clase = '<?php echo $clase;?>';
                             <?php if($clase=='admin'){?>
                             var tipo_usuario = document.getElementById('tipo_usuario').value;
                             <?php
@@ -163,16 +168,50 @@
                             var add ='add';
                             $.ajax({
                                 type: 'POST',
-                                data:('ajax='+add+'&dni='+dni+'&nombre='+nombre+'&pass='+pass+'&tipo_usuario='+tipo_usuario),
+                                data:('ajax='+add+'&dni='+dni+'&nombre='+nombre+'&pass='+pass+'&tipo_usuario='+tipo_usuario+'&clase='+clase),
                                 url:'ajax_eliminar.php',
                                 beforeSend: function(){
                                     $('#resultadoModifica').html('Procesando, espere por favor...');
+
                                 },
                                 success:function (response){
-                                    $('#resultadoModifica').html(response);
-                                    $('#dniAdd').html('');
-                                    $('#nombreAdd').html('');
-                                    $('#passAdd').html('');
+                                    $('#resultadoModifica').html('<p class="text-success"><span class="label label-success">Success</span> Añadido correctamente.</p>');
+                                    $('#dniElimina').html(response);
+                                    $('#dnimodifica').html(response);
+                                    document.getElementById('dniAdd').value='';
+                                    document.getElementById('nombreAdd').value='';
+                                    document.getElementById('passAdd').value='';
+                                }
+                            });
+                        }
+                        function modificaUsuario(){
+                            var dni = document.getElementById('dnimodifica').value;
+                            var nombre = document.getElementById('nombremodifica').value;
+                            var pass = document.getElementById('passmodifica').value;
+                            var clase = '<?php echo $clase;?>';
+                            <?php if($clase=='admin'){?>
+                            var tipo_usuario = document.getElementById('tipo_usuariomodifica').value;
+                            <?php
+                            }else{?>
+                            var tipo_usuario = '<?php echo $clase; ?>';
+                            <?php
+                            }
+                            ?>
+                            var add ='modifica';
+                            $.ajax({
+                                type: 'POST',
+                                data:('ajax='+add+'&dni='+dni+'&nombre='+nombre+'&pass='+pass+'&tipo_usuario='+tipo_usuario+'&clase='+clase),
+                                url:'ajax_eliminar.php',
+                                beforeSend: function(){
+                                    $('#resultadoModifica1').html('Procesando, espere por favor...');
+
+                                },
+                                success:function (response){
+                                    $('#resultadoModifica1').html('<p class="text-success"><span class="label label-success">Modificado correctamente</span> Modificado correctamente.</p>');
+                                    $('#dnimodifica').html(response);
+                                    $('#dniElimina').html(response);
+                                    document.getElementById('nombremodifica').value='';
+                                    document.getElementById('passmodifica').value='';
                                 }
                             });
                         }
@@ -256,9 +295,7 @@
                             }
                             ?>
 
-                <script type="text/javascript">
 
-                </script>
                 <!-- /.row -->
 
             </div>

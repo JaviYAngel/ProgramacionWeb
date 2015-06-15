@@ -39,12 +39,12 @@
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="button" class="btn btn-primary"  onclick="javascript:eliminaUsuario();">Eliminar</button>
                     </div>
+
+
+                    <div class="col-sm-offset-2 col-sm-10" id="resultadoElimina">
+
+                    </div>
                 </div>
-
-                <div class="col-sm-offset-2 col-sm-10" id="resultadoElimina">
-
-                </div>
-
             </form>
         </div>
     </div>

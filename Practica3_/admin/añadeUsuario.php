@@ -56,10 +56,19 @@
                 }
                 ?>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" class="btn btn-primary" onclick="javascript:addUsuario();">Añadir</button>
+                    <div class="col-sm-offset-2 col-sm-3">
+                        <button type="button" class="btn btn-primary" id="añadeUsuario" data-loading-text="Enviando..." autocomplete="off">Añadir</button>
                     </div>
-                    <div class="col-sm-offset-2 col-sm-10" id="resultadoModifica">
+
+                    <script>
+                        //script para pulsar un boton
+                        $('#añadeUsuario').on('click',function(){
+                           var $btn = $(this).button('loading')
+                            addUsuario();
+                            $btn.button('reset')
+                        });
+                    </script>
+                    <div class="col-sm-7" id="resultadoModifica">
 
                     </div>
                 </div>

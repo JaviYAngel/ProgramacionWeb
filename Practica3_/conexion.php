@@ -125,6 +125,12 @@ class conexion {
     public function addUsuario($dni,$nombre,$pass,$tipo){
 
         $sql = $this->conexion->prepare('INSERT  INTO usuarios (DNI,nombre,pass,tipo_usuario) VALUES (:dni, :nombre, :pass, :tipo_usuario)');
+        //$sql = $this->conexion->prepare('UPDATE usuarios SET nombre=:nombre,pass=:pass, tipo_usuario=:tipo_usuario WHERE DNI=:dni');
+        $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
+    }
+
+    public function modificaUsuario($dni,$nombre,$pass,$tipo){
+        $sql = $this->conexion->prepare('UPDATE usuarios SET nombre=:nombre,pass=:pass, tipo_usuario=:tipo_usuario WHERE DNI=:dni');
         $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
     }
 }
