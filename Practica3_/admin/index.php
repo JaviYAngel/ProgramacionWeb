@@ -96,10 +96,10 @@
                         //tipo Profesional
                         if($tipo == "profesional"){
                     ?>
-                            <li class="<?php if($_GET['class']=='cliente') echo $active;?>">
-                                <a href="./index.php?class=cliente"><i class="fa fa-fw fa-dashboard"></i>
-                                    Cliente</a>
-                            </li>
+<!--                            <li class="--><?php //if($_GET['class']=='cliente') echo $active;?><!--">-->
+<!--                                <a href="./index.php?class=cliente"><i class="fa fa-fw fa-dashboard"></i>-->
+<!--                                    Cliente</a>-->
+<!--                            </li>-->
                             <li class="<?php if($_GET['class']=='profesional') echo $active;?>">
                                 <a href="./index.php?class=profesional"><i class="fa fa-fw fa-edit"></i> Profesional</a>
                             </li>

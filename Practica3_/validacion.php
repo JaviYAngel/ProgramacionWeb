@@ -25,7 +25,7 @@ if ($dni!="" && $pass!="") {
         $_SESSION['login_vacio']=false;
         $_SESSION['tipo']=$datos[0][3];
         $_SESSION['dni']=$dni;
-        header("Location: ./admin/index.php");
+        header("Location: ./admin/index.php?class=cola");
     } else {
         $_SESSION['existeUsuario'] = "noUsuario";
         $_SESSION['login_vacio']=false;

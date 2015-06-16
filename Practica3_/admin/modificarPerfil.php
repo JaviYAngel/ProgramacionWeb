@@ -161,7 +161,7 @@ $active="active";
                             if(isset($_SESSION)) {
                                 $datos=$conexion->existeUsuario($_SESSION['dni']);
                             }
-                            echo 'hola'. $_SESSION['dni'];
+
                             if(isset($_POST['nombre'])){
                                 $conexion->updateUsuarios(array($_SESSION['dni'],$_POST['nombre'],$_POST['pass']));
                                 $datos=$conexion->existeUsuario($_SESSION['dni']);
