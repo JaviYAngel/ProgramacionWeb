@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS recurso (
-  COD int(11) NOT NULL DEFAULT '0',
+  COD varchar(11) NOT NULL DEFAULT '0',
   nombre varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   descripcion varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   lugar varchar(30) COLLATE utf8_spanish_ci NOT NULL,
