@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-06-2015 a las 18:27:20
+-- Tiempo de generación: 17-06-2015 a las 02:23:14
 -- Versión del servidor: 5.5.43-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.9
 
@@ -32,9 +32,9 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `lugar` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `horario_ini` date NOT NULL,
-  `id_usuario` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`COD`),
-  KEY `id_usuario` (`id_usuario`)
+  UNIQUE KEY `cod` (`COD`),
+  KEY `COD_2` (`COD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `recurso` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `DNI` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
+  `DNI` char(9) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
   `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `pass` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
@@ -58,21 +58,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`, `prioridad`) VALUES
+('123', '123', '123', 'cliente', 0),
+('1231231', '1233', '123123', 'cliente', 0),
+('12345678', '123', '123', 'cliente', 0),
 ('76439462C', 'Angel', 'cisneros', 'admin', 0),
 ('76439462s', 'pepe', '123', 'profesional', 0),
-('76439462V', 'qwerty', '123', '', 0),
-('76439463K', 'Pedro', '123', 'cliente', 0),
-('987654321', 'asdf', '123', 'admin', 0);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `recurso`
---
-ALTER TABLE `recurso`
-  ADD CONSTRAINT `recurso_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
+('aa123123', 'ss', 'dd', 'profesional', 0),
+('bbb', 'bbb', 'bbb', 'admin', 0),
+('fffa', 'ssd', 'asasda', 'cliente', 0),
+('ggg', 'dddd', 'dddd', 'profesional', 0),
+('ggggggggg', 'gggggg', 'ggggg', 'admin', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
