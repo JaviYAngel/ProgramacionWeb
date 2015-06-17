@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS tiene (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`, `prioridad`) VALUES
+INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
 ('123', '123', '123', 'cliente'),
 ('1231231', '1233', '123123', 'cliente'),
 ('12345678', '123', '123', 'cliente'),
