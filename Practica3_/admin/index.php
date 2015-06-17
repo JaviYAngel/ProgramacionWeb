@@ -33,6 +33,7 @@
     <!-- Custom Fonts -->
     <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/funciones_ajax.js"></script>
 
 
 </head>

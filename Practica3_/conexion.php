@@ -133,4 +133,6 @@ class conexion {
         $sql = $this->conexion->prepare('UPDATE usuarios SET nombre=:nombre,pass=:pass, tipo_usuario=:tipo_usuario WHERE DNI=:dni');
         $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
     }
+
+    public function addRecurso()
 }

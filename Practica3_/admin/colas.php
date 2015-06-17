@@ -20,27 +20,27 @@ if($tipo=='admin'){?>
                 </div>
                 <form action="index.php" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <label for="colacliente" class="col-sm-3 control-label">Nombre cola</label>
+                        <label for="nombreCola" class="col-sm-3 control-label">Nombre Recurso</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="nombreCola"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="colacliente" class="col-sm-3 control-label">Descripción</label>
+                        <label for="descripcion" class="col-sm-3 control-label">Descripción</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" id="descripcion"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="colacliente" class="col-sm-3 control-label">Lugar</label>
+                        <label for="lugar" class="col-sm-3 control-label">Lugar</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" id="lugar"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="colacliente" class="col-sm-3 control-label">Fecha de Inicio</label>
+                        <label for="fecha" class="col-sm-3 control-label">Fecha de Inicio</label>
                         <div class='col-sm-4' id='date'>
-                            <input type='date' class="form-control" />
+                            <input type='date' class="form-control" id="fecha"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,14 +49,8 @@ if($tipo=='admin'){?>
                         </div>
                     </div>
                     <div class="form-group" id="recursoSucces">
-
                     </div>
-                    
                 </form>
-                <script type="text/javascript">
-
-
-                </script>
             </div>
         </div>
         <div class="tab-pane fade" id="modificar">
