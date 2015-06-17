@@ -26,16 +26,13 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `recurso`
 --
 
-CREATE TABLE IF NOT EXISTS `recurso` (
-  `COD` int(11) NOT NULL DEFAULT '0',
-  `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `lugar` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `horario_ini` date NOT NULL,
-  PRIMARY KEY (`COD`),
-  UNIQUE KEY `cod` (`COD`),
-  KEY `COD_2` (`COD`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+CREATE TABLE IF NOT EXISTS recurso (
+  COD int(11) NOT NULL DEFAULT '0',
+  nombre varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  descripcion varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  lugar varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  horario_ini date NOT NULL,
+  PRIMARY KEY (`COD`));
 
 -- --------------------------------------------------------
 
@@ -43,15 +40,30 @@ CREATE TABLE IF NOT EXISTS `recurso` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `DNI` char(9) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
-  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `pass` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `prioridad` int(11) NOT NULL,
-  PRIMARY KEY (`DNI`),
-  UNIQUE KEY `DNI` (`DNI`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+CREATE TABLE IF NOT EXISTS usuarios (
+  DNI char(9) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
+  nombre varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  pass varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  tipo_usuario varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`DNI`));
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tiene`
+--
+
+
+CREATE TABLE IF NOT EXISTS tiene (
+    DNI char(9) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
+    COD int(11) NOT NULL DEFAULT '0',
+    prioridad int(11) NOT NULL,
+    PRIMARY KEY (prioridad, COD, DNI),
+    FOREIGN KEY (COD) REFERENCES recurso (COD),
+    FOREIGN KEY (DNI) REFERENCES usuarios (DNI) 
+);
+
 
 --
 -- Volcado de datos para la tabla `usuarios`
