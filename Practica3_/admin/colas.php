@@ -47,8 +47,15 @@ if($tipo=='admin'){?>
                         <div class="col-sm-3 col-sm-offset-3">
                             <button id="nuevoRecurso" type="button" class=" btn btn-primary" value="Nuevo"/>Nuevo</button>
                         </div>
-                    </div>
-                    <div class="form-group" id="recursoSucces">
+
+                    <script type="application/javascript">
+                        //añade funcionalidad al boton por JQUERY cuando clicamos en él
+                        $('#nuevoRecurso').on('click',function(){
+                            añadeRecurso();
+                        });
+                    </script>
+                        <div class="form-group col-sm-3 " id="recursoSucces">
+                        </div>
                     </div>
                 </form>
             </div>

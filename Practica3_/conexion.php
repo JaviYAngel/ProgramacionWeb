@@ -134,5 +134,18 @@ class conexion {
         $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
     }
 
-    public function addRecurso()
+    public function addRecurso($cod,$nombre,$descripcion,$lugar,$horario){
+        $sql = $this->conexion->prepare('INSERT  INTO recurso (COD,nombre,descripcion,lugar,horario_ini) VALUES (:COD, :nombre, :descripcion, :lugar,:horario)');
+        $rows = $sql->execute( array( ':COD' => $cod, ':nombre' => $nombre, ':descripcion' => $descripcion, ':lugar' => $lugar,'horario'=>$horario));
+    }
+
+    public function selectRecurso($cod){
+        $sql = $this->conexion->prepare('Select nombre FROM recurso WHERE COD= :cod');
+
+        $sql->execute(array(':cod' => $cod));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        return $recurso;
+    }
 }
