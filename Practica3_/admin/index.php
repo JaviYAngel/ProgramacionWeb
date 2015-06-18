@@ -5,6 +5,7 @@
 
     $tipo=$_SESSION['tipo'];
     $active="active";
+    $dni_profesional = $_SESSION['dni'];
     //if(isset($_POST["dni"]))
     if(isset($_GET['class'])){
         $clase=$_GET['class'];

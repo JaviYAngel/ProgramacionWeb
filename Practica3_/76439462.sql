@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS tiene (
     DNI char(9) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
-    COD int(11) NOT NULL DEFAULT '0',
+    COD varchar(20) COLLATE utf8_spanish_ci NOT NULL,
     prioridad int(11) NOT NULL,
     PRIMARY KEY (prioridad, COD, DNI),
     FOREIGN KEY (COD) REFERENCES recurso (COD),

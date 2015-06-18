@@ -134,18 +134,52 @@ class conexion {
         $rows = $sql->execute( array( ':dni' => $dni, ':nombre' => $nombre, ':pass' => $pass, ':tipo_usuario' => $tipo));
     }
 
-    public function addRecurso($cod,$nombre,$descripcion,$lugar,$horario){
-        $sql = $this->conexion->prepare('INSERT  INTO recurso (COD,nombre,descripcion,lugar,horario_ini) VALUES (:COD, :nombre, :descripcion, :lugar,:horario)');
-        $rows = $sql->execute( array( ':COD' => $cod, ':nombre' => $nombre, ':descripcion' => $descripcion, ':lugar' => $lugar,'horario'=>$horario));
+    public function addRecurso($cod,$nombre,$descripcion,$lugar,$horario,$dni){
+        $sql = $this->conexion->prepare('INSERT  INTO recurso (COD,nombre,descripcion,lugar,horario_ini,DNIprofesional) VALUES (:COD, :nombre, :descripcion, :lugar,:horario,:dni)');
+        $rows = $sql->execute( array( ':COD' => $cod, ':nombre' => $nombre, ':descripcion' => $descripcion, ':lugar' => $lugar,':horario'=>$horario,':dni'=>$dni));
     }
 
-    public function selectRecurso($cod){
-        $sql = $this->conexion->prepare('Select nombre FROM recurso WHERE COD= :cod');
+    public function modificaRecurso($cod,$nombre,$descripcion,$lugar,$horario,$dni){
+        $sql = $this->conexion->prepare('UPDATE recurso SET nombre=:nombre,descripcion=:descripcion,lugar=:lugar,horario_ini=:horario,DNIprofesional=:dni WHERE COD=:COD');
+        $rows = $sql->execute( array( ':COD' => $cod, ':nombre' => $nombre, ':descripcion' => $descripcion, ':lugar' => $lugar,':horario'=>$horario,':dni'=>$dni));
+    }
 
-        $sql->execute(array(':cod' => $cod));
+    public function eliminaRecurso($datos){
+        $sql = $this->conexion->prepare('DELETE FROM recurso WHERE COD = :cod');
+        $rows = $sql->execute( array( ':cod' => $datos));
+    }
+
+    public function selectRecurso(){
+        $sql = $this->conexion->query('Select nombre FROM recurso ');
+
+        //$sql->execute(array(':cod' => $cod));
         while($datos = $sql->fetch()){
             $recurso[]=$datos;
         }
+        //echo $recurso;
         return $recurso;
     }
+    public function selectRecursoProfesional($data){
+
+        $sql = $this->conexion->prepare('Select recurso.nombre from recurso WHERE  DNIprofesional = :dato');
+        $sql->execute(array(':dato'=>$data));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        //echo $recurso;
+        return $recurso;
+    }
+
+    public function selectUsuariosEnRecursos($DNI){
+        $sql = $this->conexion->query('Select * from tiene,usuarios WHERE tiene.DNI=usuarios.DNI');
+
+        //$sql->execute(array(':cod' => $cod));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        //echo $recurso;
+        return $recurso;
+    }
+
+
 }
