@@ -16,7 +16,36 @@
 </ul>
 <div id="my-tab-content" class="tab-content">
     <div class="tab-pane fade in active" id="Colas">
+        <form class="form-inline" ">
+            <div class="form-group col-sm-7 col-sm-offset-3 center">
+                <label for="cola" class=" control-label">Nombre Recurso</label>
+<!--                <div class="col-sm-4">-->
+                    <select class="form-control " name="dni" id="colaSelect">
+                        <?php
 
+                        $result = $conexion->selectRecursoProfesional($_SESSION['dni']);
+                        $long=count($result);
+                        for($i=0;$i<$long;$i++) {
+                            echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
+                        }
+                        ?>
+                    </select>
+                    <button id="mostrarUsuarios" type="button" class=" btn btn-primary " value="Nuevo"/>Mostrar Usuarios en cola</button>
+<!--                </div>-->
+            </div>
+        <script type="application/javascript">
+            $('#mostrarUsuarios').on('click',function(){
+                muestraUsuarios();
+            });
+
+        </script>
+        </form>
+        <table id="tablaUsuarios" class="table-responsive table-hover table">
+
+        </table>
+        <script>
+
+        </script>
     </div>
     <div class="tab-pane fade " id="añadir">
         <div class="panel panel-default">
@@ -75,7 +104,7 @@
                     <select class="form-control " name="dni" id="recursoModifica">
                         <?php
 
-                        $result = $conexion->selectRecurso();
+                        $result = $conexion->selectRecursoProfesional($_SESSION['dni']);
                         $long=count($result);
                         for($i=0;$i<$long;$i++) {
                             echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
@@ -127,7 +156,7 @@
                     <select class="form-control " name="dni" id="recursoElimina">
                         <?php
 
-                        $result = $conexion->selectRecurso();
+                        $result = $conexion->selectRecursoProfesional($_SESSION['dni']);
                         $long=count($result);
                         for($i=0;$i<$long;$i++) {
                             echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
@@ -144,7 +173,8 @@
             <script type="application/javascript">
                 //añade funcionalidad al boton por JQUERY cuando clicamos en él
                 $('#eliminaRecurso').on('click',function(){
-                    eliminaRecurso();
+                    var data = '<?php echo $dni_profesional; ?>';
+                    eliminaRecurso(data);
                 });
             </script>
             <div class="form-group col-sm-3 " id="recursoSuccesElimina">

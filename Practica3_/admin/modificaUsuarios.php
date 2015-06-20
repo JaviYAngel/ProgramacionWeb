@@ -23,16 +23,25 @@
                 <div class="form-group">
                     <label for="dni" class="col-sm-2 control-label">DNI</label>
                     <div class="col-sm-7">
-                        <select name="dnimodifica" id="dnimodifica">
                         <?php
+                        if($tipo == "cliente"){
+                            echo '<div class="col-sm-7"><input name="dnicliente" type="text" disabled class="form-control" id="dnicliente" placeholder="'.$_SESSION["dni"].' "></div>';
+                        }else {
 
-                        $result = $conexion->selectUsuarios($clase);
-                        $long=count($result);
-                        for($i=0;$i<$long;$i++) {
-                            echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
+                            echo '<select name="dnimodifica" id="dnimodifica">';
+
+
+                            $result = $conexion->selectUsuarios($clase);
+                            $long = count($result);
+                            for ($i = 0; $i < $long; $i++) {
+                                echo "<option value='" . $result[$i][0] . " '>" . $result[$i][0] . "</option>";
+                            }
+
+
+                            echo '</select >';
                         }
+
                         ?>
-                        </select>
                     </div>
                 </div>
                 <div class="form-group">

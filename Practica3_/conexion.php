@@ -26,9 +26,16 @@ class conexion {
     /**
      * @return array
      */
-    public function getClientes()
+    public function getClientes($cod)
     {
-        return $this->clientes;
+        $sql = $this->conexion->prepare('Select usuarios.DNI,nombre,prioridad from tiene,usuarios WHERE COD =:cod AND usuarios.DNI = tiene.DNI');
+
+        $sql->execute(array(':cod' => $cod));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        //echo $recurso;
+        return $recurso;
     }
 
     /**
@@ -179,6 +186,19 @@ class conexion {
         }
         //echo $recurso;
         return $recurso;
+    }
+
+    public function getPrioridad($recurso,$dni){
+        $sql = $this->conexion->query('Select prioridad from tiene WHERE COD = :recurso and DNI = :dni');
+
+        $sql->execute(array(':recurso' => $recurso, ':dni '=>$dni));
+        $datos = $sql->fetch();
+        return $datos;
+    }
+
+    public function setPrioridad($prioridad,$recurso,$dni){
+        $sql = $this->conexion->prepare('UPDATE tiene SET prioridad=:prioridad WHERE COD=:COD and DNI = :dni');
+        $rows = $sql->execute( array( ':COD' => $recurso,':dni'=>$dni, ':prioridad'=>$prioridad));
     }
 
 

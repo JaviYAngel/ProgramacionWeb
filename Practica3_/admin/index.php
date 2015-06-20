@@ -272,17 +272,20 @@
                     include_once("colas.php");
                 }else{?>
                     <ul id="tabs" class="nav nav-tabs nav-justified">
-                        <li class="active"><a href="#añadir" data-toggle="tab">Añadir</a></li>
-                        <li><a href="#modificar" data-toggle="tab">Modificar</a></li>
+                        <?php if($tipo != "cliente") {
+
+                            echo '<li class="active" ><a href = "#añadir" data - toggle = "tab" > Añadir</a ></li>';
+                        }?>
+                        <li <?php if($tipo == "cliente"){echo "class='active'";} ?> ><a href="#modificar" data-toggle="tab">Modificar</a></li>
                         <li><a href="#eliminar" data-toggle="tab">Eliminar</a></li>
                     </ul>
-                    <div id="my-tab-content" class="tab-content">
-                        <div class="tab-pane fade in active" id="añadir">
+                    <div id="my-tab-content" class="tab-content ">
+                        <div class="tab-pane fade <?php if($tipo != "cliente"){echo "in active";} ?>" id="añadir">
                             <?php
                             include_once("añadeUsuario.php");
                             ?>
                         </div>
-                        <div class="tab-pane fade" id="modificar">
+                        <div class="tab-pane fade  <?php if($tipo == "cliente"){echo "in active";} ?>" id="modificar">
                             <?php
                             include_once("modificaUsuarios.php");
                             ?>
