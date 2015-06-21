@@ -82,13 +82,14 @@ if($_POST['accion']=='add'){
     }
     echo $option;
 }elseif($_POST['accion']=='usuario'){
+    $COD_ =strtoupper($_POST["cod"]);
     $datos = $conexion->getClientes($_POST['cod']);
     $long = count($datos);
     $table = '    <thead><tr>
                     <th>DNI</th>
                     <th>Nombre</th>
                     <th>Prioridad</th>
-                    <th>Quitar de la Cola</th>
+                    <th>Atender Cliente</th>
                     <th colspan="2">Subir y Bajar prioridad</th>
                   </tr></thead>';
     for ($i = 0; $i < $long; $i++) {
@@ -96,8 +97,8 @@ if($_POST['accion']=='add'){
         $table .= '<td>'. $datos[$i][0] . '</td>';
         $table .= '<td>'. $datos[$i][1] . '</td>';
         $table .= '<td>'. $datos[$i][2] . '</td>';
-        $table .= '<td><button id="botoneliminar" class="btn btn-success" aria-hidden="true"><i class="glyphicon glyphicon-ok-circle"></i></button> </td>';
-        $table .= '<td><button id="upPrioridad" class="btn btn-primary" aria-hidden="true"><i class="glyphicon glyphicon-chevron-up"></i></button> </td>';
+        $table .= '<td><button id="botoneliminar" class="btn btn-success" aria-hidden="true" ><i class="glyphicon glyphicon-ok-circle"></i></button> </td>';
+        $table .= '<td><button id="upPrioridad" class="btn btn-primary" aria-hidden="true" ><i class="glyphicon glyphicon-chevron-up"></i></button> </td>';
         $table .= '<td><button id="downPrioridad" class="btn btn-primary" aria-hidden="true"><i class="glyphicon glyphicon-chevron-down"></i></button> </td>';
         $table .= '</tr>';
     }
@@ -133,13 +134,30 @@ if($_POST['accion']=='add'){
     }
     $resultado[0]=$option;
     echo $option;
-//    $result = $conexion->getUsuariosenCola($_POST['dni']);
-//    $long = count($result);
-//    $option1='';
-//    for ($i = 0; $i < $long; $i++) {
-//        $option1 .= "<option value='" . $result[$i][0] . " '>" . $result[$i][0] . "</option>";
-//    }
-//    $resultado[1]=$option1;
-//    echo $option1;
-//    ///echo array('option'=>$option,'option1'=>$option1);
+
+}elseif($_POST['accion']=='quitardeCola'){
+
+    $COD_ =strtoupper($_POST["cod"]);
+    $conexion->atendido($_POST['dni'],$COD_);
+    $datos = $conexion->getClientes($_POST['cod']);
+    $long = count($datos);
+    $table = '    <thead><tr>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Prioridad</th>
+                    <th>Atender Cliente</th>
+                    <th colspan="2">Subir y Bajar prioridad</th>
+                  </tr></thead>';
+    for ($i = 0; $i < $long; $i++) {
+        $table .= '<tr>';
+        $table .= '<td>'. $datos[$i][0] . '</td>';
+        $table .= '<td>'. $datos[$i][1] . '</td>';
+        $table .= '<td>'. $datos[$i][2] . '</td>';
+        $table .= '<td><button id="botoneliminar" class="btn btn-success" aria-hidden="true" ><i class="glyphicon glyphicon-ok-circle"></i></button> </td>';
+        $table .= '<td><button id="upPrioridad" class="btn btn-primary" aria-hidden="true" ><i class="glyphicon glyphicon-chevron-up"></i></button> </td>';
+        $table .= '<td><button id="downPrioridad" class="btn btn-primary" aria-hidden="true" ><i class="glyphicon glyphicon-chevron-down"></i></button> </td>';
+        $table .= '</tr>';
+    }
+    echo $table;
+
 }

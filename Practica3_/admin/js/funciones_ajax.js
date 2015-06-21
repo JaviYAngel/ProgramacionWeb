@@ -100,49 +100,34 @@ function muestraUsuarios(){
         },
         success:function (response){
             $('#tablaUsuarios').show().html(response);
-            //$('table#tablaUsuarios tbody tr td:nth-child(4)').on('click',function(){
-            //
-            //    alert("quitar de la cola");
-            //});
-            //$('table#tablaUsuarios tbody tr td:nth-child(5)').on('click',function(){
-            //
-            //    alert("sube prioridad");
-            //});
-            //$('table#tablaUsuarios tbody tr td:nth-child(6)').on('click',function(){
-            //
-            //    alert("baja prioridad");
-            //});
-            $('#botoneliminar').click(function(){
-                //var td = new Array();
-                ////td = $(this).closest('table').find('td:nth-child(3)').html()
-                //td = $(this).closest('table').find('td:nth-child(3)').html();
-                //alert(td);
-
-                $('#tablaUsuarios tbody tr').each(function (index) {
-                    var td = new Array();
-                    $(this).children("td").each(function(index2){
-                        var dni;
-                        var prioridad;
-                        switch (index2){
-                            case 0: dni = $(this).text();
-                            case 2: prioridad = $(this).text();
-                            case 3: alert(dni +" quitar " + prioridad);
-                            case 4: alert(dni +" subir " + prioridad);
-                            case 5: alert(dni +" bajar " + prioridad);
-                        }
-                    });
-                })
-            });
-
         }
     });
-}
-//$(function(){
-//   $('#tablaUsuarios tr > *').click(function(e){
-//       alert("hola caracola");
-//   })
-//});
 
+}
+
+window.quitarCola = function(){
+    var accion='quitardeCola';
+    var cod = $('#colaSelect').val();
+
+    $.ajax({
+        type: 'POST',
+        data:('accion='+accion+'&cod='+cod),
+        url:'ajax_recursos.php',
+
+        beforeSend: function(){
+            $('#tablaUsuarios').html('Procesando, espere por favor...');
+        },
+        success:function (response){
+            $('#tablaUsuarios').show().html(response);
+        }
+    });
+};
+function subirPrioridad(DNI,COD){
+
+}
+function bajarPrioridad(DNI,COD){
+
+}
 function unirseCola(dni,cod){
     var accion = 'unirseCola';
 

@@ -34,7 +34,7 @@ class conexion {
      */
     public function getClientes($cod)
     {
-        $sql = $this->conexion->prepare('Select usuarios.DNI,nombre,prioridad from tiene,usuarios WHERE COD =:cod AND usuarios.DNI = tiene.DNI');
+        $sql = $this->conexion->prepare('Select usuarios.DNI,nombre,prioridad from tiene,usuarios WHERE COD =:cod AND usuarios.DNI = tiene.DNI AND atendido=0');
 
         $sql->execute(array(':cod' => $cod));
         while($datos = $sql->fetch()){
@@ -261,6 +261,11 @@ class conexion {
             $recurso[]=$datos;
         }
         return $recurso;
+    }
+
+    public function atendido($dni,$cod){
+        $sql=$this->conexion->prepare('Update tiene set atendido=1 where COD=:COD and DNI = :dni');
+        $sql->execute(array(':COD'=>$cod,':dni'=>$dni));
     }
 
 }
