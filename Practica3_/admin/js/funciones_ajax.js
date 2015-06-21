@@ -142,3 +142,44 @@ function muestraUsuarios(){
 //       alert("hola caracola");
 //   })
 //});
+
+function unirseCola(dni,cod){
+    var accion = 'unirseCola';
+
+    $.ajax({
+        type: 'POST',
+        data:('cod='+cod+'&accion='+accion+'&dni='+dni),
+        url:'ajax_recursos.php',
+
+        beforeSend: function(){
+            $('#AñadeArecursoSucces').html('Procesando, espere por favor...');
+        },
+        success:function (response){
+            $('#AñadeArecursoSucces').html('<p class="text-success">' +
+            '<span class="label label-success">Añadiendo a cola</span></p>');
+            $('#AñadeArecursoSucces').hide(5000);
+            $('#AñadeArecurso').html(response);
+
+        }
+    });
+}
+function eliminaClienteCola(cod,dni){
+    var accion = 'eliminardelaCola';
+
+    $.ajax({
+        type: 'POST',
+        data:('cod='+cod+'&accion='+accion+'&dni='+dni),
+        url:'ajax_recursos.php',
+
+        beforeSend: function(){
+            $('#recursoSuccesElimina').html('Procesando, espere por favor...');
+        },
+        success:function (response){
+            $('#recursoSuccesElimina').html('<p class="text-success">' +
+            '<span class="label label-success">Eliminando de la cola</span></p>');
+            $('#recursoSuccesElimina').hide(5000);
+            $('#eliminaCola').html(response[1]);
+
+        }
+    });
+}

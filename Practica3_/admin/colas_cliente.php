@@ -23,20 +23,32 @@
                     <label for="AñadeArecurso" class="col-sm-3 control-label">Nombre Recurso</label>
                     <div class="col-sm-4">
                         <select class="form-control " name="dni" id="AñadeArecurso">
-                            <?php
-
-                            $result = $conexion->selectRecurso();
-                            $long=count($result);
-                            for($i=0;$i<$long;$i++) {
-                                echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
-                            }
-                            ?>
+                        <?php
+                        $result = $conexion->getUsuariosenCola($_SESSION['dni']);
+                        $long=count($result);
+                        for($i=0;$i<$long;$i++) {
+                            echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
+                        }
+                        ?>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-3 col-sm-offset-3">
-                        <button id="eliminaRecurso" type="button" class=" btn btn-primary" value="Elimina"/>Unirse a la cola</button>
+                        <button id="altaClienteRecurso" type="button" class=" btn btn-primary" value="Elimina"/>Unirse a la cola</button>
+                    </div>
+                    <script>
+
+                        $('#altaClienteRecurso').on('click',function(){
+                            var dni = "<?php echo $_SESSION['dni'];?>";
+                            var cod = $('#AñadeArecurso').val();
+                            console.log(cod);
+                            unirseCola(dni,cod);
+                        });
+                    </script>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-3" id="AñadeArecursoSucces">
                     </div>
                 </div>
             </form>
@@ -47,12 +59,12 @@
     <div class="tab-pane fade" id="eliminar">
         <form action="index.php" class="form-horizontal" method="post">
             <div class="form-group ">
-                <label for="nombreCola" class="col-sm-3 control-label">Nombre Recurso</label>
+                <label for="eliminaCola" class="col-sm-3 control-label">Nombre Recurso</label>
                 <div class="col-sm-4">
-                    <select class="form-control " name="dni" id="recursoElimina">
+                    <select class="form-control " name="dni" id="eliminaCola">
                         <?php
 
-                        $result = $conexion->selectRecurso();
+                        $result = $conexion->getUsuariosTiene($_SESSION['dni']);
                         $long=count($result);
                         for($i=0;$i<$long;$i++) {
                             echo "<option value='". $result[$i][0] ." '>" . $result[$i][0] . "</option>";
@@ -63,13 +75,15 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-3 col-sm-offset-3">
-                    <button id="eliminaRecurso" type="button" class=" btn btn-primary" value="Elimina"/>Darse de baja</button>
+                    <button id="eliminaClienteRecurso" type="button" class=" btn btn-primary" value="Elimina"/>Darse de baja</button>
                 </div>
             </div>
             <script type="application/javascript">
                 //añade funcionalidad al boton por JQUERY cuando clicamos en él
-                $('#eliminaRecurso').on('click',function(){
-                    eliminaRecurso();
+                $('#eliminaClienteRecurso').on('click',function(){
+                    var cod = $('#eliminaCola').val();
+                    var dni = '<?php echo $_SESSION['dni']?>';
+                    eliminaClienteCola(cod,dni);
                 });
             </script>
             <div class="form-group col-sm-3 " id="recursoSuccesElimina">

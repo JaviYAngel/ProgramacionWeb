@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col s10 offset-s1">
                 <div class="section">
-                    <h3>Bienvenido a la aplicación de tickets</h3>
+                    <h3>Bienvenido a Consulta Doctor</h3>
                     <div class="divider"></div>
                 </div>
             </div>

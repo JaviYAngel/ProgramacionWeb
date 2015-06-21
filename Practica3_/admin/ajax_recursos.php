@@ -103,4 +103,40 @@ if($_POST['accion']=='add'){
     }
     echo $table;
 
+}elseif($_POST['accion']=='unirseCola'){
+    $prioridad = $conexion->getPrioridad2($_POST['cod']);
+    $cod_cola = substr($_POST['cod'],0,3);
+    $cod_cola .= $prioridad;
+    echo $prioridad;
+    $conexion->unirseaCola($_POST['dni'],$_POST['cod'],$prioridad,$cod_cola);
+
+
+
+        $result = $conexion->getUsuariosenCola($_POST['dni']);
+        $long = count($result);
+    $option='';
+        for ($i = 0; $i < $long; $i++) {
+            $option .= "<option value='" . $result[$i][0] . " '>" . $result[$i][0] . "</option>";
+        }
+    echo $option;
+}elseif($_POST['accion']=='eliminardelaCola'){
+
+    $conexion->salirdeCola($_POST['dni'],$_POST['cod']);
+    $resultado = array();
+    $result = $conexion->getUsuariosTiene($_POST['dni']);
+    $long = count($result);
+    $option='';
+    for ($i = 0; $i < $long; $i++) {
+        $option .= "<option value='" . $result[$i][0] . " '>" . $result[$i][0] . "</option>";
+    }
+    $resultado[0]=$option;
+    echo $option
+    $result = $conexion->getUsuariosenCola($_POST['dni']);
+    $long = count($result);
+    $option1='';
+    for ($i = 0; $i < $long; $i++) {
+        $option1 .= "<option value='" . $result[$i][0] . " '>" . $result[$i][0] . "</option>";
+    }
+    $resultado[1]=$option1;
+    echo $option1;
 }

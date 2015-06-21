@@ -233,7 +233,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>
+                            Bienvenidos a Consulta Doctor <small>
                                 <?php
                                 if($tipo=="admin"){
                                     echo "Administrador";
@@ -272,20 +272,20 @@
                     include_once("colas.php");
                 }else{?>
                     <ul id="tabs" class="nav nav-tabs nav-justified">
-                        <?php if($tipo != "cliente") {
+                        <?php if($tipo == "admin") {
 
-                            echo '<li class="active" ><a href = "#añadir" data - toggle = "tab" > Añadir</a ></li>';
+                            echo '<li class="active" ><a href = "#añadir" data-toggle="tab" > Añadir</a ></li>';
                         }?>
-                        <li <?php if($tipo == "cliente"){echo "class='active'";} ?> ><a href="#modificar" data-toggle="tab">Modificar</a></li>
+                        <li <?php if($tipo == "cliente" || $tipo =='profesional'){echo "class='active'";} ?> ><a href="#modificar" data-toggle="tab">Modificar</a></li>
                         <li><a href="#eliminar" data-toggle="tab">Eliminar</a></li>
                     </ul>
                     <div id="my-tab-content" class="tab-content ">
-                        <div class="tab-pane fade <?php if($tipo != "cliente"){echo "in active";} ?>" id="añadir">
+                        <div class="tab-pane fade <?php if($tipo == "admin"){echo "in active";} ?>" id="añadir">
                             <?php
                             include_once("añadeUsuario.php");
                             ?>
                         </div>
-                        <div class="tab-pane fade  <?php if($tipo == "cliente"){echo "in active";} ?>" id="modificar">
+                        <div class="tab-pane fade  <?php if($tipo == "cliente" || $tipo =='profesional'){echo "in active";} ?>" id="modificar">
                             <?php
                             include_once("modificaUsuarios.php");
                             ?>

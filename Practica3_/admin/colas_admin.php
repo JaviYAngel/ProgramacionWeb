@@ -52,7 +52,7 @@
                     <script type="application/javascript">
     //añade funcionalidad al boton por JQUERY cuando clicamos en él
     $('#nuevoRecurso').on('click',function(){
-        var data = <?php echo $dni_profesional; ?>;
+        var data = '<?php echo $dni_profesional; ?>';
         añadeRecurso(data);
     });
                     </script>
@@ -105,7 +105,7 @@
         <script type="application/javascript">
             //añade funcionalidad al boton por JQUERY cuando clicamos en él
             $('#modificaRecurso').on('click',function(){
-                var data = <?php echo $dni_profesional; ?>;
+                var data = '<?php echo $dni_profesional; ?>';
                 modificaRecurso(data);
             });
         </script>

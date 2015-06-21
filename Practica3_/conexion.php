@@ -4,6 +4,10 @@
  * User: angel
  * Date: 12/05/15
  * Time: 17:07
+ *
+ * Clase creada para la conexion de la base de datos y asi encapsular
+ * las peticiones a la base de datos con la logica del programa
+ * En resumen son funciones que nos dan los datos que necesitamos
  */
 
 class conexion {
@@ -24,7 +28,9 @@ class conexion {
     }
 
     /**
+     * devuelven los usuarios tipo clientes
      * @return array
+     *
      */
     public function getClientes($cod)
     {
@@ -201,5 +207,51 @@ class conexion {
         $rows = $sql->execute( array( ':COD' => $recurso,':dni'=>$dni, ':prioridad'=>$prioridad));
     }
 
+    public function getUsuariosenCola($dni){
+        $sql  = $this->conexion->prepare('Select COD FROM recurso  where COD NOT IN ( SELECT COD from tiene WHERE DNI = :dni)');
+        $sql->execute(array(':dni'=>$dni));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        return $recurso;
+    }
+    public function getUsuariosTiene($dni){
+        $sql  = $this->conexion->prepare('SELECT recurso.nombre from tiene,recurso WHERE DNI = :dni AND tiene.COD=recurso.COD');
+        $sql->execute(array(':dni'=>$dni));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        return $recurso;
+    }
+
+    public function unirseaCola($dni,$cod,$prioridad,$codcola){
+        $sql = $this->conexion->prepare('INSERT  INTO tiene (DNI,COD,prioridad,cod_cola) VALUES (:COD, :dni,:prioridad,:codcola)');
+        $rows = $sql->execute( array( ':COD' => $cod, ':dni'=>$dni,':prioridad'=>$prioridad,':codcola'=>$codcola));
+    }
+
+    public function getPrioridad2($cod){
+
+        $sql  = $this->conexion->prepare(' select prioridad FROM tiene WHERE  COD=:cod ORDER BY prioridad DESC ');
+        $sql->execute(array(':cod'=>$cod));
+        $i=0;
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+            $i++;
+        }
+        return $i;
+    }
+    public function getPrioridad3($dni,$cod){
+
+        $sql  = $this->conexion->prepare(' select prioridad FROM tiene WHERE  COD=:cod AND DNI=:dni');
+        $sql->execute(array(':cod'=>$cod,':dni'=>$dni));
+        $datos = $sql->fetch();
+
+        return $datos;
+    }
+
+    public function salirdeCola($dni,$cod){
+        $sql  = $this->conexion->prepare('DELETE FROM tiene WHERE DNI =:dni  AND COD = :cod');
+        $sql->execute(array(':cod'=>$cod,':dni'=>$dni));
+    }
 
 }
