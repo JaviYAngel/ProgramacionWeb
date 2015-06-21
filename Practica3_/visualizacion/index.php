@@ -107,11 +107,22 @@
                                         <td>3319</td>
                                         <td>10/21/2013</td>
                                     </tr>
+                                    <tr>
+                                        <td>3319</td>
+                                        <td>10/21/2013</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3319</td>
+                                        <td>10/21/2013</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="text-left">
                                 <p> Informacion auxiliar </p>
+                                <div class="panel panel-default">
+                                    <div class="panel-body"</div>
+                                </div>
                             </div>
                         </div>
                     </div>
