@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-06-2015 a las 22:01:54
+-- Tiempo de generación: 21-06-2015 a las 23:00:26
 -- Versión del servidor: 5.5.43-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.9
 
@@ -42,10 +42,9 @@ CREATE TABLE IF NOT EXISTS `recurso` (
 --
 
 INSERT INTO `recurso` (`COD`, `nombre`, `descripcion`, `lugar`, `horario_ini`, `DNIprofesional`) VALUES
+('BALONCESTO', 'Baloncesto', 'asdasdasd', 'asdasd', '2015-06-18', '123'),
 ('FUTBOL', 'futbol', 'asdas', 'asd', '2015-06-03', '123'),
-('MEDICO', 'medico', 'kjlkjlk', 'lkjlk', '2015-06-02', '123'),
-('SALA 1', 'sala 1', 'hotel', 'asldkjflakjsdÃ±lfkajÃ±sldkfj', '2015-06-19', 'bbb'),
-('SALA 2', 'SALA 2', 'la que sea', 'lskjfaÃ±lsdkf', '2015-06-19', 'bbb');
+('MEDICO', 'medico', 'kjlkjlk', 'lkjlk', '2015-06-02', '123');
 
 -- --------------------------------------------------------
 
@@ -58,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `tiene` (
   `COD` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `prioridad` int(11) NOT NULL,
   `cod_cola` char(10) NOT NULL,
+  `atendido` tinyint(1) NOT NULL,
   PRIMARY KEY (`cod_cola`,`COD`,`DNI`),
   KEY `COD` (`COD`),
   KEY `DNI` (`DNI`)
@@ -67,14 +67,13 @@ CREATE TABLE IF NOT EXISTS `tiene` (
 -- Volcado de datos para la tabla `tiene`
 --
 
-INSERT INTO `tiene` (`DNI`, `COD`, `prioridad`, `cod_cola`) VALUES
-('123', 'FUTBOL', 1, 'FUT1'),
-('1231231', 'FUTBOL', 2, 'FUT2'),
-('123', 'MEDICO', 2, 'MED1'),
-('123', 'SALA 1', 1, 'SA1'),
-('123', 'SALA 2', 1, 'SA11'),
-('1231231', 'SALA 1', 2, 'SA2'),
-('aa123123', 'SALA 1', 3, 'SA3');
+INSERT INTO `tiene` (`DNI`, `COD`, `prioridad`, `cod_cola`, `atendido`) VALUES
+('ggg', 'BALONCESTO', 5, 'BAL5', 1),
+('fffa', 'FUTBOL', 3, 'FU3', 1),
+('123', 'FUTBOL', 1, 'FUT1', 1),
+('bbb', 'FUTBOL', 1, 'FUT1', 0),
+('1231231', 'FUTBOL', 2, 'FUT2', 0),
+('123', 'MEDICO', 2, 'MED1', 0);
 
 -- --------------------------------------------------------
 
@@ -105,7 +104,8 @@ INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
 ('bbb', 'bbb', 'bbb', 'cliente'),
 ('fffa', 'ssd', 'asasda', 'cliente'),
 ('ggg', 'dddd', 'dddd', 'profesional'),
-('ggggggggg', 'gggggg', 'ggggg', 'admin');
+('ggggggggg', 'gggggg', 'ggggg', 'admin'),
+('qwerty', 'qwerty', 'qwerty', 'cliente');
 
 --
 -- Restricciones para tablas volcadas
