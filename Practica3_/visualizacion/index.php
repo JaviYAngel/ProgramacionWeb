@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $titulo ?></title>
+
+    <title>Colas del Hospital</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +22,8 @@
     <!-- Custom Fonts -->
     <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script src="js/funciones_visualizacion.js"></script>
 
 
 </head>
@@ -67,7 +70,7 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
+                                <table id="tablaVisualizacion" class="table table-bordered table-hover table-striped">
                                     <thead>
                                     <tr>
                                         <th>Codigo de cliente</th>
@@ -75,53 +78,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>3326</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3325</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3324</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3323</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3322</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3321</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3320</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3319</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3319</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3319</td>
-                                        <td>10/21/2013</td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="text-left">
                                 <p> Informacion auxiliar </p>
                                 <div class="panel panel-default">
-                                    <div class="panel-body"</div>
+                                    <div class="panel-body">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +95,7 @@
                 <div class="col-lg-2">
 
                 </div>
+
             </div>
             <!-- /.row -->
         </div>

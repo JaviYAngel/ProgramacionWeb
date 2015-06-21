@@ -225,7 +225,8 @@ class conexion {
     }
 
     public function unirseaCola($dni,$cod,$prioridad,$codcola){
-        $sql = $this->conexion->prepare('INSERT  INTO tiene (DNI,COD,prioridad,cod_cola) VALUES (:COD, :dni,:prioridad,:codcola)');
+        //$sql = $this->conexion->prepare('INSERT  INTO tiene (DNI,COD,prioridad,cod_cola) VALUES (:COD, :dni,:prioridad,:codcola)');
+        $sql = $this->conexion->prepare('INSERT INTO tiene (DNI,COD,prioridad,cod_cola,atendido) VALUES (:dni,:COD,:prioridad,:codcola,0)');
         $rows = $sql->execute( array( ':COD' => $cod, ':dni'=>$dni,':prioridad'=>$prioridad,':codcola'=>$codcola));
     }
 
@@ -252,6 +253,14 @@ class conexion {
     public function salirdeCola($dni,$cod){
         $sql  = $this->conexion->prepare('DELETE FROM tiene WHERE DNI =:dni  AND COD = :cod');
         $sql->execute(array(':cod'=>$cod,':dni'=>$dni));
+    }
+
+    public function visualizacion(){
+        $sql=$this->conexion->query('Select cod_cola,lugar From tiene,recurso WHERE tiene.atendido=1 AND tiene.COD=recurso.COD ORDER BY prioridad ASC ');
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+        return $recurso;
     }
 
 }

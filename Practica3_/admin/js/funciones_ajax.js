@@ -158,7 +158,8 @@ function unirseCola(dni,cod){
             $('#AñadeArecursoSucces').html('<p class="text-success">' +
             '<span class="label label-success">Añadiendo a cola</span></p>');
             $('#AñadeArecursoSucces').hide(5000);
-            $('#AñadeArecurso').html(response);
+            //$('#AñadeArecurso').html(response);
+            location.reload();
 
         }
     });
@@ -178,8 +179,9 @@ function eliminaClienteCola(cod,dni){
             $('#recursoSuccesElimina').html('<p class="text-success">' +
             '<span class="label label-success">Eliminando de la cola</span></p>');
             $('#recursoSuccesElimina').hide(5000);
-            $('#eliminaCola').html(response[1]);
-
+            //$('#eliminaCola').html(response);
+            //$('#AñadeArecurso').html(response);
+            location.reload();
         }
     });
 }
