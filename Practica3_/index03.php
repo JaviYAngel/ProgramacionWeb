@@ -68,15 +68,7 @@
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-action-perm-identity"></i>Registrarse como cliente</div>
                         <div class="collapsible-body cyan lighten-4">
                             <br/>
-                            <?php
-//                                require_once('./conexion.php');
-//                                $con = new conexion();
-//                                if(isset($_POST['nombre'])) {
-//                                    $res = $con->setClientes(array($_POST['dni'], $_POST['nombre'],
-//                                        $_POST['pass']));
-//                                }
-                            ?>
-                            <form id="form1" class="col s12" action="" method="post">
+                            <form id="form1" class="col s12" >
                                 <div id="groupDiv" class="row">
                                     <div class="input-field col s10" id="nombre">
                                         <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
@@ -92,11 +84,15 @@
                                         <label for="pass" required >Contraseña</label>
                                     </div>
                                     <div class="col offset-s1 s8">
-                                        <button class="btn waves-effect waves-light cyan" type="submit" name="action" onclick="setCliente()">Enviar
+                                        <button id="enviarCliente" class="btn waves-effect waves-light cyan" type="submit" name="action">Enviar
                                             <i class="mdi-content-send right"></i>
                                         </button>
 
                                         <script type="text/javascript">
+                                            $('#enviarCliente').on('click',function(){
+                                                setCliente();
+                                            });
+
                                           function setCliente() {
                                               var nombre = $('#nombre').val();
                                               var dni = $('#dni').val();
@@ -104,8 +100,8 @@
 
                                               $.ajax({
                                                   type: 'POST',
-                                                  data: ('snombre=' + nombre + '&dni=' + dni + '&pass=' + pass),
-                                                  url: 'validacion2.php',
+                                                  data: ('nombre=' + nombre + '&dni=' + dni + '&pass=' + pass),
+                                                  url: './validacion2.php',
 
                                                   beforeSend: function () {
                                                       $('h5#resultado').html('Procesando, espere por favor...');
@@ -114,11 +110,8 @@
                                                       $('h5#resultado').html(response);
                                                   }
                                               });
-                                              return false;
                                           }
                                         </script>
-
-
                                     </div>
                                 </div>
                             </form>
