@@ -95,6 +95,7 @@
 
                                           function setCliente() {
                                               var nombre = $('#nombre').val();
+                                              console.log(nombre);
                                               var dni = $('#dni').val();
                                               var pass = $('#pass').val();
 
