@@ -131,18 +131,24 @@
                     <li>
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-maps-place"></i>LogIn</div>
                         <div class="collapsible-body cyan lighten-4">
+
+                            <!-- Formulario para Login -->
                             <form id="form1" class="col s12" action="validacion.php" method="post">
                                 <div class="row">
+
+                                    <!-- Campo para la DNI-->
                                     <div class="input-field col s6">
                                         <input name="dni2" id="dni2" type="text" class="validate">
                                         <label for="dni2">Dni</label>
-
                                     </div>
+
+                                    <!-- Campo para la contraseña-->
                                     <div class="input-field col s6">
                                         <input name="pass2" id="pass2" type="password" class="validate">
                                         <label for="pass2">Contraseña</label>
-
                                     </div>
+
+                                    <!-- Boton para enviar -->
                                     <div class="col offset-s2 s8">
                                         <button class="btn waves-effect waves-light cyan" type="submit" >Enviar
                                             <i class="mdi-content-send " ></i>
