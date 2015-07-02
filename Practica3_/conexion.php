@@ -63,6 +63,15 @@ class conexion {
         }
     }
 
+    public function isCliente($cod){
+        $sql = $this->conexion->prepare('Select usuarios.DNI,nombre,prioridad from tiene,usuarios WHERE COD =:cod AND usuarios.DNI = tiene.DNI AND atendido=0');
+
+        $sql->execute(array(':cod' => $cod));
+        while($datos = $sql->fetch()){
+            $recurso[]=$datos;
+        }
+    }
+
     /**
      * @return array
      */
