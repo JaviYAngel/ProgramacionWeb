@@ -1,6 +1,6 @@
 <?php
-
-
+    session_start();
+    if(!isset($_SESSION['existeUsuario'])){$_SESSION['existeUsuario']="vacio";}
 
 ?>
 
@@ -68,7 +68,7 @@
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-action-perm-identity"></i>Registrarse como cliente</div>
                         <div class="collapsible-body cyan lighten-4">
                             <br/>
-                            <form id="form1" class="col s12" action="index03.php">
+                            <form id="form1" class="col s12">
                                 <div id="groupDiv" class="row">
                                     <div class="input-field col s10" id="nombre">
                                         <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
@@ -84,7 +84,7 @@
                                         <label for="pass" required >Contraseña</label>
                                     </div>
                                     <div class="col offset-s1 s8">
-                                        <button id="enviarCliente" class="btn waves-effect waves-light cyan"  name="action">Enviar
+                                        <button id="enviarCliente" type="button" class="btn waves-effect waves-light cyan">Enviar
                                             <i class="mdi-content-send right"></i>
                                         </button>
 
@@ -134,7 +134,7 @@
 
                                     </div>
                                     <div class="col offset-s2 s8">
-                                        <button class="btn waves-effect waves-light cyan" type="submit" name="action" >Enviar
+                                        <button class="btn waves-effect waves-light cyan" type="submit" >Enviar
                                             <i class="mdi-content-send " ></i>
                                         </button>
                                     </div>
@@ -151,7 +151,16 @@
             </div>
             <div class="col s4"><br/></div>
         </div>
-    <h5 id="resultado">
+    <h5 id="resultado"><?php
+
+            if(isset($_POST["dni"])){
+                echo "Cliente registrado correctamente";
+            }elseif($_SESSION['login_vacio']==true ){
+                echo "Campos vacíos.";
+            }elseif($_SESSION['existeUsuario']=="vacio"){
+
+            }elseif($_SESSION['existeUsuario']=="noUsuario"){
+            echo "Contraseña o usuario inválidos.";}?>
     </h5>
 
     </div>

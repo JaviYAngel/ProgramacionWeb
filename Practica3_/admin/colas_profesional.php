@@ -16,7 +16,7 @@
 </ul>
 <div id="my-tab-content" class="tab-content">
     <div class="tab-pane fade in active" id="Colas">
-        <form class="form-inline" ">
+        <form class="form-inline" >
             <div class="form-group col-sm-7 col-sm-offset-3 center">
                 <label for="cola" class=" control-label">Nombre Recurso</label>
 <!--                <div class="col-sm-4">-->

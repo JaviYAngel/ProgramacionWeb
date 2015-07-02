@@ -55,7 +55,7 @@ class conexion {
             $rows = $stmt->execute(array(':nombre' => $clientes[1],
                 ':pass' => $clientes[2], ':dni' => $clientes[0]));
             if ($rows > 0)
-                echo 'Actualización correcta';
+                //echo 'Actualización correcta';
         }
         catch(PDOException $e)
         {
