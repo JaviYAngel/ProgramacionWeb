@@ -68,26 +68,36 @@
                         <div class="collapsible-header cyan lighten-2"><i class="mdi-action-perm-identity"></i>Registrarse como cliente</div>
                         <div class="collapsible-body cyan lighten-4">
                             <br/>
+
+                            <!-- Formulario de Registrase como cliente -->
                             <form id="form1" class="col s12">
                                 <div id="groupDiv" class="row">
+
+                                    <!-- Campo para el nombre-->
                                     <div class="input-field col s10" id="nombre">
                                         <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
                                         <label for="nombre"  >Nombre</label>
-
                                     </div>
+
+                                    <!-- Campo para el DNI-->
                                     <div class="input-field col s10">
                                         <input name="dni" id="dni" type="text" class="validate" required>
                                         <label for="dni" required>Dni</label>
                                     </div>
+
+                                    <!-- Campo para la contraseña-->
                                     <div class="input-field col s10">
                                         <input name="pass" id="pass" type="password" class="validate" required>
                                         <label for="pass" required >Contraseña</label>
                                     </div>
+
+                                    <!-- Boton enviar -->
                                     <div class="col offset-s1 s8">
                                         <button id="enviarCliente" type="button" class="btn waves-effect waves-light cyan">Enviar
                                             <i class="mdi-content-send right"></i>
                                         </button>
 
+                                        <!-- Script para enviar lo datos del formulario -->
                                         <script type="application/javascript">
                                             $('#enviarCliente').on('click',function(){
                                                 setCliente();
