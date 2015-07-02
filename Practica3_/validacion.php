@@ -31,7 +31,7 @@ if ($dni!="" && $pass!="") {
         $_SESSION['login_vacio']=false;
         header("Location: ./index03.php");
     }
-}else{
+} else {
     $_SESSION['login_vacio']=true;
     header("Location: ./index03.php");
 }
