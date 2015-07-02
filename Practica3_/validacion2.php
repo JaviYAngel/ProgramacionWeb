@@ -9,11 +9,10 @@
 require_once('./conexion.php');
 $con = new conexion();
 sleep(1);
-if(isset($_POST)) {
-    
+if (isset($_POST)) {
     $res = $con->setClientes(array($_POST['dni'], $_POST['nombre'],$_POST['pass']));
 
     echo "Cliente añadido correctamente";
-}else{
+} else {
     echo 'No se ha podido completar el proceso.';
 }
