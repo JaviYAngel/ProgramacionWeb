@@ -1,12 +1,62 @@
 $(document).ready(function() {
-    $("#form1").validate({
-        groups:{
-            grupo: "nombre dni pass"
-        },
-        rules: {
-            nombre: {
-                required: true
+
+        $("#form1").validate({
+            groups: {
+                grupo: "nombre dni pass"
             },
+            rules: {
+                name: {
+                    required: true
+                },
+                dni: {
+                    required: true,
+                    rangelength: [8, 9]
+                },
+                pass: {
+                    required: true,
+                    rangelength: [3, 9]
+                }
+            },
+            messages: {
+                name: "Especifica tu nombre.",
+                dni: "Introduce DNI con letra en mayuscula.",
+                pass: "Campo vacío. Rango entre 3-9"
+            },
+            //errorLabelContainer:"#message a",
+            //wrapper:"a ", debug:true,
+            errorPlacement: function (error, element) {
+                if ((element.attr("name") == "name") || (element.attr("name") == "dni") || (element.attr("name") == "pass")) {
+                    error.insertAfter("#groupDiv", "form1");
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            submitHandler: function(){
+                var nombre = $('#name').val();
+                var dni = $('#dni').val();
+                var pass = $('#pass').val();
+
+                $.ajax({
+                    type: 'POST',
+                    data: ('nombre=' + nombre + '&dni=' + dni + '&pass=' + pass),
+                    url: './validacion2.php',
+
+                    beforeSend: function () {
+                        $('h5#resultado').html('Procesando, espere por favor...');
+                    },
+                    success: function (response) {
+                        $('h5#resultado').html(response);
+                        $('#name').val("");
+                        $('#dni').val("");
+                        $('#pass').val("");
+                    }
+                });
+            }
+        });
+
+
+    $('#form2').validate({
+        rules: {
             dni:{
                 required: true,
                 rangelength:[8,9]
@@ -15,19 +65,14 @@ $(document).ready(function() {
                 required:true,
                 rangelength:[3,9]
             }
-
-
         },
         messages: {
-            nombre: "Especifica tu nombre.",
             dni: "Introduce DNI con letra en mayuscula.",
             pass: "Campo vacío. Rango entre 3-9"
         },
-        //errorLabelContainer:"#message a",
-        //wrapper:"a ", debug:true,
         errorPlacement: function(error, element){
-            if((element.attr("name")=="nombre") || (element.attr("name")=="dni") ||(element.attr("name")=="pass")){
-                error.insertAfter("#groupDiv","form1");
+            if((element.attr("name")=="dni") ||(element.attr("name")=="pass")){
+                error.insertAfter("#groupDiv","form2");
             }else{
                 error.insertAfter(element);
 

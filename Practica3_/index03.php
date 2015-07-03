@@ -70,59 +70,33 @@
                             <br/>
 
                             <!-- Formulario de Registrase como cliente -->
-                            <form id="form1" class="col s12">
+                            <form id="form1" class="col s12" method="post">
                                 <div id="groupDiv" class="row">
 
                                     <!-- Campo para el nombre-->
                                     <div class="input-field col s10" id="nombre">
-                                        <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
-                                        <label for="nombre"  >Nombre</label>
+                                        <input name="name" id="name" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
+                                        <label for="name"  >Nombre</label>
                                     </div>
 
                                     <!-- Campo para el DNI-->
                                     <div class="input-field col s10">
                                         <input name="dni" id="dni" type="text" class="validate" required>
-                                        <label for="dni" required>Dni</label>
+                                        <label for="dni">Dni</label>
                                     </div>
 
                                     <!-- Campo para la contraseña-->
                                     <div class="input-field col s10">
                                         <input name="pass" id="pass" type="password" class="validate" required>
-                                        <label for="pass" required >Contraseña</label>
+                                        <label for="pass">Contraseña</label>
                                     </div>
 
                                     <!-- Boton enviar -->
                                     <div class="col offset-s1 s8">
-                                        <button id="enviarCliente" type="button" class="btn waves-effect waves-light cyan">Enviar
+                                        <button id="enviarCliente" type="submit" class="btn waves-effect waves-light cyan">Enviar
                                             <i class="mdi-content-send right"></i>
                                         </button>
 
-                                        <!-- Script para enviar lo datos del formulario -->
-                                        <script type="application/javascript">
-                                            $('#enviarCliente').on('click',function(){
-                                                setCliente();
-                                            });
-
-                                          function setCliente() {
-                                              var nombre = $('#nombre_').val();
-                                              console.log(nombre);
-                                              var dni = $('#dni').val();
-                                              var pass = $('#pass').val();
-
-                                              $.ajax({
-                                                  type: 'POST',
-                                                  data: ('nombre=' + nombre + '&dni=' + dni + '&pass=' + pass),
-                                                  url: './validacion2.php',
-
-                                                  beforeSend: function () {
-                                                      $('h5#resultado').html('Procesando, espere por favor...');
-                                                  },
-                                                  success: function (response) {
-                                                      $('h5#resultado').html(response);
-                                                  }
-                                              });
-                                          }
-                                        </script>
                                     </div>
                                 </div>
                             </form>
@@ -134,7 +108,7 @@
                         <div class="collapsible-body cyan lighten-4">
 
                             <!-- Formulario para Login -->
-                            <form id="form1" class="col s12" action="validacion.php" method="post">
+                            <form id="form2" class="col s12" method="post">
                                 <div class="row">
 
                                     <!-- Campo para la DNI-->
