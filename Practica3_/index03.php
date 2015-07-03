@@ -75,8 +75,8 @@
 
                                     <!-- Campo para el nombre-->
                                     <div class="input-field col s10" id="nombre">
-                                        <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
-                                        <label for="nombre"  >Nombre</label>
+                                        <input name="nombre_" id="nombre_" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
+                                        <label for="nombre_"  >Nombre</label>
                                     </div>
 
                                     <!-- Campo para el DNI-->
@@ -104,7 +104,7 @@
                                             });
 
                                           function setCliente() {
-                                              var nombre = $('#nombre').val();
+                                              var nombre = $('#nombre_').val();
                                               console.log(nombre);
                                               var dni = $('#dni').val();
                                               var pass = $('#pass').val();
@@ -168,16 +168,9 @@
             </div>
             <div class="col s4"><br/></div>
         </div>
-    <h5 id="resultado"><?php
+    <h5 id="resultado">
 
-            if(isset($_POST["dni"])){
-                echo "Cliente registrado correctamente";
-            }elseif($_SESSION['login_vacio']==true ){
-                echo "Campos vacíos.";
-            }elseif($_SESSION['existeUsuario']=="vacio"){
 
-            }elseif($_SESSION['existeUsuario']=="noUsuario"){
-            echo "Contraseña o usuario inválidos.";}?>
     </h5>
 
     </div>
