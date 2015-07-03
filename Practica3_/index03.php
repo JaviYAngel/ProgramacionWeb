@@ -75,8 +75,8 @@
 
                                     <!-- Campo para el nombre-->
                                     <div class="input-field col s10" id="nombre">
-                                        <input name="nombre_" id="nombre_" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
-                                        <label for="nombre_"  >Nombre</label>
+                                        <input name="nombre" id="nombre" type="text" class="validate" required data-toggle="tooltip" data-placement="right">
+                                        <label for="nombre"  >Nombre</label>
                                     </div>
 
                                     <!-- Campo para el DNI-->

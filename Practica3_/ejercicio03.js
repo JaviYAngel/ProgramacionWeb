@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $("#form1").validate({
         groups:{
             grupo: "nombre dni pass"
