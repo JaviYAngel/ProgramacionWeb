@@ -109,7 +109,7 @@
 
                             <!-- Formulario para Login -->
                             <form id="form2" class="col s12" method="post">
-                                <div class="row">
+                                <div id="groupDiv2" class="row">
 
                                     <!-- Campo para la DNI-->
                                     <div class="input-field col s6">

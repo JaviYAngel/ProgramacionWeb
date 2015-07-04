@@ -64,12 +64,20 @@ class conexion {
     }
 
     public function isCliente($cod){
-        $sql = $this->conexion->prepare('Select usuarios.DNI,nombre,prioridad from tiene,usuarios WHERE COD =:cod AND usuarios.DNI = tiene.DNI AND atendido=0');
+        $sql = $this->conexion->prepare('select nombre,DNI,pass,tipo_usuario from usuarios where DNI = :dni');
+        $user =  array();
+        $rows = $sql->execute(array(':dni'=> $cod));
+        //$resultado = $this->conexion->query($consulta);
 
-        $sql->execute(array(':cod' => $cod));
+        //foreach($resultado as $res){
+        //   $user[]=$res;
+        //}
+
         while($datos = $sql->fetch()){
-            $recurso[]=$datos;
+            $user[]=$datos;
         }
+            if ($user[0][1] == $cod) return true;
+            else return false;
     }
 
     /**

@@ -62,7 +62,7 @@
                         </i> <?php
                         require_once('../conexion.php');
                         $con = new conexion();
-                        $datos=$con->existeUsuario($_POST['dni']);
+                        $datos=$con->existeUsuario($_SESSION['dni']);
                         echo $_SESSION['usuario'];
 
 
@@ -249,13 +249,13 @@
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>
                                 <?php
-                                if($_GET['class']=="admin"){
+                                if($clase=="admin"){
                                     echo "Administrador";
-                                }elseif($_GET['class']=="profesional"){
+                                }elseif($clase=="profesional"){
                                     echo "Profesional";
-                                }elseif($_GET['class']=="cliente"){
+                                }elseif($clase=="cliente"){
                                     echo "Cliente";
-                                }elseif($_GET['class']=="cola"){
+                                }elseif($clase=="cola"){
                                     echo "Colas del ".$tipo;
                                 }
                                 ?>
