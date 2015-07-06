@@ -6,15 +6,18 @@
  * Time: 17:00
  */
 
-require_once("./conexion.php");
+require_once("conexion.php");
 session_start();
-
 $conexion = new conexion();
 
 $dni = $_POST['dni'];
 $pass = $_POST['pass1'];
+
 sleep(2);
+
 $existeUsuario = $conexion->isCliente($dni);
+
+
 if($existeUsuario) {
     $datos = $conexion->existeUsuario($dni);
 

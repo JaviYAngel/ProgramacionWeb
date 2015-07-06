@@ -1,0 +1,8 @@
+# .htaccess por defecto
+# Permitir ejecución de scripts CGI y no presentar indice de dirctorios
+Options -Indexes
+# Servir automáticamente los archivos de índice (index.(*) ó
+# default.(*))
+DirectoryIndex index03.php index.html index.htm
+# Permitir todo
+AllowOverride All
