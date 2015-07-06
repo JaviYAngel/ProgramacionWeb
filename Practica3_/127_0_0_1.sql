@@ -90,12 +90,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
-('', '', '', 'cliente'),
-('123', '123', '123', 'profesional'),
-('1231231', '1233', '123123', 'cliente'),
 ('12312312C', '', '123', 'cliente'),
 ('12312316C', '', '123', 'cliente'),
-('12345678', '123', '123', 'cliente'),
+('12345678p', '123', '123', 'cliente'),
 ('65465465s', '6545645', '654', 'cliente'),
 ('76122222s', 'JuanPedro', '123', 'cliente'),
 ('76129462s', '123123', '123', 'cliente'),
@@ -103,13 +100,7 @@ INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
 ('76439123s', '', '123', 'cliente'),
 ('76439462C', 'Angel', 'cisneros', 'admin'),
 ('76439462s', 'pepe', '123', 'profesional'),
-('76439463K', 'undefined', '123', 'cliente'),
-('aa123123', 'ss', 'dd', 'profesional'),
-('bbb', 'bbb', 'bbb', 'cliente'),
-('fffa', 'ssd', 'asasda', 'cliente'),
-('ggg', 'dddd', 'dddd', 'profesional'),
-('ggggggggg', 'gggggg', 'ggggg', 'admin'),
-('qwerty', 'qwerty', 'qwerty', 'cliente');
+('76439463K', 'undefined', '123', 'cliente');
 
 --
 -- Índices para tablas volcadas
