@@ -16,8 +16,8 @@
 --
 -- Base de datos: `76439462`
 --
-CREATE DATABASE IF NOT EXISTS `76439462` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `76439462`;
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
 
 -- --------------------------------------------------------
 

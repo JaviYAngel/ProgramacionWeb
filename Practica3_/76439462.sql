@@ -36,15 +36,6 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   KEY `COD_2` (`COD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `recurso`
---
-
-INSERT INTO `recurso` (`COD`, `nombre`, `descripcion`, `lugar`, `horario_ini`, `DNIprofesional`) VALUES
-('BALONCESTO', 'Baloncesto', 'asdasdasd', 'asdasd', '2015-06-18', '123'),
-('FUTBOL', 'futbol', 'asdas', 'asd', '2015-06-03', '123'),
-('MEDICO', 'medico', 'kjlkjlk', 'lkjlk', '2015-06-02', '123');
-
 -- --------------------------------------------------------
 
 --
@@ -62,17 +53,6 @@ CREATE TABLE IF NOT EXISTS `tiene` (
   KEY `DNI` (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `tiene`
---
-
-INSERT INTO `tiene` (`DNI`, `COD`, `prioridad`, `cod_cola`, `atendido`) VALUES
-('ggg', 'BALONCESTO', 5, 'BAL5', 1),
-('fffa', 'FUTBOL', 3, 'FU3', 1),
-('123', 'FUTBOL', 1, 'FUT1', 1),
-('bbb', 'FUTBOL', 1, 'FUT1', 0),
-('1231231', 'FUTBOL', 2, 'FUT2', 0),
-('123', 'MEDICO', 2, 'MED1', 0);
 
 -- --------------------------------------------------------
 
@@ -89,22 +69,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `DNI` (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
-('123', '123', '123', 'profesional'),
-('1231231', '1233', '123123', 'cliente'),
-('12345678', '123', '123', 'cliente'),
-('76439462C', 'Angel', 'cisneros', 'admin'),
-('76439462s', 'pepe', '123', 'profesional'),
-('aa123123', 'ss', 'dd', 'profesional'),
-('bbb', 'bbb', 'bbb', 'cliente'),
-('fffa', 'ssd', 'asasda', 'cliente'),
-('ggg', 'dddd', 'dddd', 'profesional'),
-('ggggggggg', 'gggggg', 'ggggg', 'admin'),
-('qwerty', 'qwerty', 'qwerty', 'cliente');
 
 --
 -- Restricciones para tablas volcadas
@@ -120,3 +84,47 @@ ALTER TABLE `tiene`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+--
+-- Volcado de datos para la tabla `tiene`
+--
+
+INSERT INTO `tiene` (`DNI`, `COD`, `prioridad`, `cod_cola`, `atendido`) VALUES
+  ('ggg', 'BALONCESTO', 5, 'BAL5', 1),
+  ('fffa', 'FUTBOL', 3, 'FU3', 1),
+  ('123', 'FUTBOL', 1, 'FUT1', 1),
+  ('bbb', 'FUTBOL', 1, 'FUT1', 0),
+  ('1231231', 'FUTBOL', 2, 'FUT2', 0),
+  ('123', 'MEDICO', 2, 'MED1', 0);
+
+
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`DNI`, `nombre`, `pass`, `tipo_usuario`) VALUES
+  ('123', '123', '123', 'profesional'),
+  ('1231231', '1233', '123123', 'cliente'),
+  ('12345678', '123', '123', 'cliente'),
+  ('76439462C', 'Angel', 'cisneros', 'admin'),
+  ('76439462s', 'pepe', '123', 'profesional'),
+  ('aa123123', 'ss', 'dd', 'profesional'),
+  ('bbb', 'bbb', 'bbb', 'cliente'),
+  ('fffa', 'ssd', 'asasda', 'cliente'),
+  ('ggg', 'dddd', 'dddd', 'profesional'),
+  ('ggggggggg', 'gggggg', 'ggggg', 'admin'),
+  ('qwerty', 'qwerty', 'qwerty', 'cliente');
+
+
+
+--
+-- Volcado de datos para la tabla `recurso`
+--
+
+INSERT INTO `recurso` (`COD`, `nombre`, `descripcion`, `lugar`, `horario_ini`, `DNIprofesional`) VALUES
+  ('BALONCESTO', 'Baloncesto', 'asdasdasd', 'asdasd', '2015-06-18', '123'),
+  ('FUTBOL', 'futbol', 'asdas', 'asd', '2015-06-03', '123'),
+  ('MEDICO', 'medico', 'kjlkjlk', 'lkjlk', '2015-06-02', '123');
